@@ -10,7 +10,7 @@ export default function Navbar() {
                     <Image src={logo} alt='' class='w-14 h-14 rounded-full'></Image>
                 </div>
 
-                <ul class="hidden md:flex space-x-10 text-xl font-bold font-myText">
+                <ul class="hidden md:flex space-x-10 text-xl  font-myText">
                     <li class='hover:font-extrabold hover:underline'>Home</li>
                     <li class='hover:font-extrabold hover:underline'>Documentation</li>
                     <li class='hover:font-extrabold hover:underline'>FAQ'S</li>
@@ -18,7 +18,7 @@ export default function Navbar() {
                     <li class='hover:font-extrabold hover:underline'>Login</li>
                 </ul>
                 {/* Hamburger */}
-                <Image src={hamburger} alt='' class='w-10 h-10 rounded-full md:hidden cursor-pointer'></Image>
+                <Image src={hamburger} alt='' class='w-10 h-10 rounded-full md:hidden cur'></Image>
 
 
 
