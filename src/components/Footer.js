@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import logo from '../Assets/qrcode.png'
 function Footer(){
     return <footer class="text-center bg-uhigreen text-black bottom-0 fixed w-full  flex justify-evenly">
@@ -48,7 +49,7 @@ function Footer(){
           <ul class="list-none mb-0">
             <li>
               {/* <a href="#!" class="text-black text-lg">Link 1</a> */}
-              <img src={logo} alt="ABDM QR" class='w-16 mx-auto items-center'/>
+              <Image src={logo} alt="ABDM QR" class='w-16 mx-auto items-center'/>
             </li>
             
           </ul>
