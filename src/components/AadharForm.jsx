@@ -1,3 +1,5 @@
+import "../app/globals.css";
+
 import logo from '../Assets/uhi-logo.png';
 import Image from 'next/image';
 function AadharForm(props) {
