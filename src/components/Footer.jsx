@@ -3,7 +3,7 @@ import qr from '../assets/QR_code_for_mobile_English_Wikipedia.svg.webp'
 export default function Navbar() {
     return (
 
-        <footer className="w-full bg-myGreen fixed bottom-0">
+        <footer className="w-full bg-uhigreen fixed bottom-0">
             <div className="container mx-auto grid grid-cols-1 gap-1 px-6 py-8  md:grid-cols-4 md:gap-5">
                 <div>
                     <h2 className="mb-6 text-xl font-myText">Our Partners</h2>
