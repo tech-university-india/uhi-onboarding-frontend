@@ -1,4 +1,6 @@
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import "../app/globals.css";
 function NavigationBar() {
     return (<nav class="flex sticky top-0 z-30 px-4 py-3 border-b md:shadow-lg items-center relative bg-uhigreen font-sans">
     <div class="text-lg md:py-0 py-4 text-5xl">

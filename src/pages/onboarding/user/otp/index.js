@@ -1,13 +1,13 @@
-import AadharForm from "@/components/AadharForm";
 import Footer from "@/components/Footer";
 import NavigationBar from "@/components/NavigationBar";
-import Link from 'next/link';
-export default function User() {
+import RegistrationForm from "@/components/RegistrationForm";
+
+export default function OTPRegistration() {
     return (<div>
         <NavigationBar />
-            <AadharForm />
+            <RegistrationForm />
             <Footer />
     </div>
         
     );
-};
+}
