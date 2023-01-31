@@ -6,7 +6,7 @@ export default function Navbar() {
         <footer className="w-full bg-uhigreen fixed bottom-0">
             <div className="container mx-auto grid grid-cols-1 gap-1 px-6 py-8  md:grid-cols-4 md:gap-5">
                 <div>
-                    <h2 className="mb-6 text-xl font-myText">Our Partners</h2>
+                    <h2 className="mb-6 text-xl font-sans">Our Partners</h2>
                     <ul className="text-m hidden md:block">
                         <li className="mb-4">
                             <a className=" hover:underline">BAHMNI</a>
@@ -15,7 +15,7 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div>
-                    <h2 className="mb-6 text-xl font-myText">Important Links</h2>
+                    <h2 className="mb-6 text-xl font-sans">Important Links</h2>
                     <ul className="text-m hidden md:block">
                         <li className="mb-4">
                             <a className=" hover:underline">Health Facility Registery</a>
@@ -28,7 +28,7 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                    <h2 className="mb-6 text-xl font-myText">Policies</h2>
+                    <h2 className="mb-6 text-xl font-sans">Policies</h2>
                     <ul className="text-m hidden md:block">
                         <li className="mb-4">
                             <a className=" hover:underline">Data Privacyy</a>
@@ -41,7 +41,7 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                    <h2 className="mb-6 text-xl font-myText">Patient Locker</h2>
+                    <h2 className="mb-6 text-xl font-sans">Patient Locker</h2>
                     <ul className="textß-m hidden md:block">
                         <li className="mb-4">
                             <a className=" hover:underline">

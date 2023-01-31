@@ -8,7 +8,8 @@ module.exports = {
 		extend: {
 			colors: {
 				'uhigreen': '#D5F8C8;',
-				'uhipurple': '#d3c8f8'
+				'uhipurple': '#d3c8f8',
+				'uhigreen-secondary': '#BCE974'
 			},
 			fontFamily: {
 				'sans': ['Poppins', 'sans-serif'],

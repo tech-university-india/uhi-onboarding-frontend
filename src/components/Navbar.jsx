@@ -4,13 +4,13 @@ import Image from 'next/image'
 
 export default function Navbar() {
     return (
-        <nav className="w-full bg-uhigreen fixed top-0">
+        <nav className="w-screen bg-uhigreen top-0 relative">
             <div className='container mx-auto py-5 flex justify-between items-center'>
                 <div>
                     <Image src={logo} alt='' className='w-14 h-14 rounded-full'></Image>
                 </div>
 
-                <ul className="hidden md:flex space-x-10 text-xl  font-myText">
+                <ul className="hidden md:flex space-x-10 text-xl font-sans">
                     <li className='hover:font-extrabold hover:underline'>Home</li>
                     <li className='hover:font-extrabold hover:underline'>Documentation</li>
                     <li className='hover:font-extrabold hover:underline'>FAQ&apos;s</li>
