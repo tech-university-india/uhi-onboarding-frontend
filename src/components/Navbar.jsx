@@ -1,6 +1,8 @@
+'use client';
 import logo from '../assets/ABDM_English_Logo_with_tagline_aea4f8d600.png';
 import hamburger from '../assets/Hamburger_icon.svg.png'
 import Image from 'next/image'
+import Dropdown from './Dropdown';
 
 export default function Navbar() {
     return (
@@ -12,6 +14,9 @@ export default function Navbar() {
 
                 <ul className="hidden md:flex space-x-10 text-xl font-sans">
                     <li className='hover:font-extrabold hover:underline'>Home</li>
+                    <li>
+                        <Dropdown />
+                    </li>
                     <li className='hover:font-extrabold hover:underline'>Documentation</li>
                     <li className='hover:font-extrabold hover:underline'>FAQ&apos;s</li>
                     <li className='hover:font-extrabold hover:underline'>Contact Us</li>
