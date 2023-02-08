@@ -1,5 +1,5 @@
-function RegistrationForm(){
-    return (<div class="antialiased text-gray-900 font-sans mt-12">
+function RegistrationForm() {
+  return (<div class="antialiased text-gray-900 font-sans mt-12">
     <div class="items-center h-screen w-full">
       <div class="w-full bg-white rounded shadow-xl p-12 m-8 md:max-w-xl md:mx-auto">
         <form class="mb-4" action="/" method="post">
@@ -14,7 +14,7 @@ function RegistrationForm(){
           <div class='flex justify-evenly w-full'>
             <button class="bg-green-700 hover:bg-black text-white  text-lg font-semibold px-4 py-2 rounded">Submit</button>
           </div>
-         
+
         </form>
       </div>
     </div>

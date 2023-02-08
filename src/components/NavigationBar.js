@@ -55,7 +55,7 @@ export default function NavigationBar() {
                     <li class='hover:font-bold hover:bg-green-500 hover:rounded-full text-2xl p-2'>Contact Us</li>
                     <li class='hover:font-bold hover:bg-green-500 hover:rounded-full text-2xl p-2'>Login</li>
                 </ul>
-                
+                {/* Hamburger */}
                 <Image src={hamburger} alt='' class='w-10 h-10 rounded-full md:hidden cur'></Image>
             </div>
 
