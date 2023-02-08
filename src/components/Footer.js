@@ -4,7 +4,6 @@ export default function Navbar() {
   return (
     <footer class="w-full bg-uhigreen fixed bottom-0">
       <div class="container mx-auto grid-cols-1 pt-6 pb-2  md:grid-cols-3 md:gap-5 flex justify-between">
-
         <div>
           <h2 class="font-bold text-2xl font-sans mb-2.5">Important Links</h2>
           <ul class="text-m hidden md:block">
@@ -17,7 +16,6 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-
         <div>
           <h2 class="font-bold text-2xl font-sans mb-2.5">Policies</h2>
           <ul class="text-m hidden md:block">
@@ -30,7 +28,6 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-
         <div>
           <h2 class="font-bold text-2xl font-sans mb-2.5 ">Patient Locker</h2>
           <ul class="textß-m hidden md:block">
@@ -42,10 +39,6 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-
     </footer>
-
-
-
   )
 };
