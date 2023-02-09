@@ -11,8 +11,8 @@ const FormBox = ({
     <div className="items-center h-screen w-full">
       <div className="bg-white w-full flex-row justify-center rounded shadow-xl p-12 m-8 md:max-w-xl">
         <Image src={UhiLogo} alt="UHI Logo" className="w-max h-max" />
-        <form className="mb-4">
-          <div className="m-5">{children}</div>
+        <form className="mb-2">
+          <div className="m-5 mb-2">{children}</div>
         </form>
       </div>
     </div>
