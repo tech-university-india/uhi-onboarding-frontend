@@ -5,7 +5,16 @@ module.exports = {
 		'./src/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				'uhigreen': '#D5F8C8;',
+				'uhipurple': '#d3c8f8',
+				'uhigreen-secondary': '#BCE974'
+			},
+			fontFamily: {
+				'sans': ['Poppins', 'sans-serif'],
+			}
+		},
 	},
 	plugins: [],
 };
