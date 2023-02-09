@@ -1,13 +1,13 @@
 import AadharForm from "@/components/AadharForm";
 import Footer from "@/components/Footer";
-import NavigationBar from "@/components/NavigationBar";
+import NavBar from "@/components/NavBar";
 import Link from 'next/link';
 export default function User() {
     return (<div>
-        <NavigationBar />
-            <AadharForm />
-            <Footer />
+        <NavBar />
+        <AadharForm />
+        <Footer />
     </div>
-        
+
     );
 };

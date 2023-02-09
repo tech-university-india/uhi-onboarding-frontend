@@ -32,14 +32,14 @@ function AadharForm(props) {
   return (
 
 
-    <div class="antialiased text-gray-900 font-sans">
-      <div class="items-center h-screen w-full">
-        <div class="w-full bg-white rounded shadow-xl p-12 m-8 md:max-w-xl md:mx-auto">
-          <form class="mb-4" method="GET">
-            <Image src={logo} alt="UHI Logo" class='w-max' />
-            <div class="mb-6 ">
-              <label htmlFor="aadharNum" class="block text-xs mb-1">Aadhar Number</label>
-              <input onChange={(e) => setInput(e.target.value)} value={input} class="w-full border rounded p-2 outline-none focus:shadow-outline" type="aadharInput" name="aadharInput" id="aadharInput" placeholder="Aadhar Number"></input>
+    <div className="antialiased text-gray-900 font-sans">
+      <div className="items-center h-screen w-full">
+        <div className="w-full bg-white rounded shadow-xl p-12 m-8 md:max-w-xl md:mx-auto">
+          <form className="mb-4" method="GET">
+            <Image src={logo} alt="UHI Logo" className='w-max' />
+            <div className="mb-6 ">
+              <label htmlFor="aadharNum" className="block text-xs mb-1">Aadhar Number</label>
+              <input onChange={(e) => setInput(e.target.value)} value={input} className="w-full border rounded p-2 outline-none focus:shadow-outline" type="aadharInput" name="aadharInput" id="aadharInput" placeholder="Aadhar Number"></input>
               {
                 alert && <Alert setAlert={setAlert} setInput={setInput} />
               }
@@ -47,7 +47,7 @@ function AadharForm(props) {
             <div className={`justify-evenly w-full ${valid ? '' : 'flex'}`}>
 
               {
-                !valid && <button class="bg-black hover:bg-green-700 text-white  text-lg font-semibold px-4 py-2 rounded">Back</button>
+                !valid && <button className="bg-black hover:bg-green-700 text-white  text-lg font-semibold px-4 py-2 rounded">Back</button>
               }
               {
                 valid && <AadharConditional />

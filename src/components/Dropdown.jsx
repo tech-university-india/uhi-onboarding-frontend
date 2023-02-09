@@ -2,8 +2,8 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+function classNames(...classNamees) {
+    return classNamees.filter(Boolean).join(' ')
 }
 
 export default function Dropdown() {
@@ -12,7 +12,7 @@ export default function Dropdown() {
         <Menu as="div" className="relative inline-block text-left">
             <div>
                 <Menu.Button className="mx-auto hidden md:flex space-x-10 hover:font-extrabold hover:rounded-full hover:bg-green-500 w-full justify-center rounded-md bg-uhigreen px-4 py-2 text-2xl font-medium text-black focus:outline-none focus:ring-2 focus:ring-uhigreen focus:ring-offset-2 focus:ring-offset-uhigreen">
-                    Options
+                    About
                 </Menu.Button>
             </div>
             <Transition
@@ -42,7 +42,7 @@ export default function Dropdown() {
                         <Menu.Item>
                             {({ active }) => (
                                 <Link
-                                    href="/about/doctors"
+                                    href="/about/Doctors"
                                     className={classNames(
                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                         'block px-4 py-2 text-sm'
@@ -55,7 +55,7 @@ export default function Dropdown() {
                         <Menu.Item>
                             {({ active }) => (
                                 <Link
-                                    href="/about/citizens"
+                                    href="/about/Citizens"
                                     className={classNames(
                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                         'block px-4 py-2 text-sm'
