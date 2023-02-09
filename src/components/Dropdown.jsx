@@ -11,7 +11,7 @@ export default function Dropdown() {
 
         <Menu as="div" className="relative inline-block text-left">
             <div>
-                <Menu.Button className="mx-auto hidden md:flex space-x-10 hover:font-extrabold hover:underline w-full justify-center rounded-md bg-uhigreen px-4 font-medium text-black hover:bg-uhigreen-secondary focus:outline-none focus:ring-2 focus:ring-uhigreen focus:ring-offset-2 focus:ring-offset-uhigreen">
+                <Menu.Button className="mx-auto hidden md:flex space-x-10 hover:font-extrabold hover:rounded-full hover:bg-green-500 w-full justify-center rounded-md bg-uhigreen px-4 py-2 text-2xl font-medium text-black focus:outline-none focus:ring-2 focus:ring-uhigreen focus:ring-offset-2 focus:ring-offset-uhigreen">
                     Options
                 </Menu.Button>
             </div>
