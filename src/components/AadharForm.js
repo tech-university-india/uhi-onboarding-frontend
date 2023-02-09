@@ -38,7 +38,7 @@ function AadharForm(props) {
           <form class="mb-4" method="GET">
             <Image src={logo} alt="UHI Logo" class='w-max' />
             <div class="mb-6 ">
-              <label for="aadharNum" class="block text-xs mb-1">Aadhar Number</label>
+              <label htmlFor="aadharNum" class="block text-xs mb-1">Aadhar Number</label>
               <input onChange={(e) => setInput(e.target.value)} value={input} class="w-full border rounded p-2 outline-none focus:shadow-outline" type="aadharInput" name="aadharInput" id="aadharInput" placeholder="Aadhar Number"></input>
               {
                 alert && <Alert setAlert={setAlert} setInput={setInput} />
