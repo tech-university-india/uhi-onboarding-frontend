@@ -4,16 +4,18 @@ import PatientLoginFormButtons from '@/components/PatientLoginFormButtons'
 import React from 'react'
 
 const LOGIN_TYPE = {
-  OTP_VIA_AADHAR: 'AADHAAR_OTP', OTP_VIA_MOBILE: 'MOBILE_OTP', PERSONAL_DETAILS: 'Personal Details'
+  OTP_VIA_AADHAR: 'AADHAAR_OTP', OTP_VIA_MOBILE: 'MOBILE_OTP'
 }
 
 export default function UserLogin () {
   const [abhaNumber, setAbhaNumber] = React.useState('')
+  const [mobileNumber, setMobileNumber] = React.useState('')
   const [currentLoginType, setCurrentLoginType] = React.useState(undefined)
   const [loginFlowStarted, setLoginFlowStarted] = React.useState(false)
+  const [otpSent, setOtpSent] = React.useState(false)
 
   const getLoginTypeRadioBox = (label, type) => <div className="mb-3 text-xl" >
-    <input disabled={abhaNumber === '' || loginFlowStarted} type="radio" value={type} id={type} onChange={(e) => {
+    <input disabled={loginFlowStarted} type="radio" value={type} id={type} onChange={(e) => {
       setCurrentLoginType(e.target.value)
     }} name="loginType" className="mr-3" /><label htmlFor={type}>{label}</label>
   </div>
@@ -27,14 +29,29 @@ export default function UserLogin () {
     const input = event.target.value
     if (event.target.value.length < 10 && abhaNumber !== '') {
       setAbhaNumber('')
-      setLoginFlowStarted(false)
-      setCurrentLoginType(undefined)
       return
     }
     // abha number regex
     const abhaRegex = /^[0-9]{10}$/
     if (abhaRegex.test(input)) {
       setAbhaNumber(input)
+    } else {
+      setAbhaNumber('')
+    }
+  }
+
+  const handleMobileNumberOnChange = (event) => {
+    const input = event.target.value
+    if (event.target.value.length < 10 && mobileNumber !== '') {
+      setMobileNumber('')
+      return
+    }
+    // mobile number regex
+    const mobileRegex = /^[0-9]{10}$/
+    if (mobileRegex.test(input)) {
+      setMobileNumber(input)
+    } else {
+      setMobileNumber('')
     }
   }
 
@@ -46,27 +63,44 @@ export default function UserLogin () {
     }
   }
 
+  const handleSendOTP = (event) => {
+    // TODO: refactor to generalize the validators as well
+
+    if (currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR && abhaNumber !== '') {
+      getSendOTPHandlerFor[currentLoginType](event)
+      setOtpSent(true)
+    } else if (currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE && mobileNumber !== '') {
+      getSendOTPHandlerFor[currentLoginType](event)
+      setOtpSent(true)
+    } else {
+      event.preventDefault()
+    }
+  }
+
   const getSendOTPHandlerFor = {
-    [LOGIN_TYPE.OTP_VIA_AADHAR]: (event) => { },
-    [LOGIN_TYPE.OTP_VIA_MOBILE]: (event) => { },
-    [LOGIN_TYPE.PERSONAL_DETAILS]: (event) => { }
+    [LOGIN_TYPE.OTP_VIA_AADHAR]: (event) => {
+      event?.preventDefault()
+    },
+    [LOGIN_TYPE.OTP_VIA_MOBILE]: (event) => {
+      event?.preventDefault()
+    }
   }
 
   const getResendOTPHandlerFor = {
-    [LOGIN_TYPE.OTP_VIA_AADHAR]: (event) => { },
-    [LOGIN_TYPE.OTP_VIA_MOBILE]: (event) => { },
-    [LOGIN_TYPE.PERSONAL_DETAILS]: (event) => { }
+    [LOGIN_TYPE.OTP_VIA_AADHAR]: (event) => {
+      event?.preventDefault()
+    },
+    [LOGIN_TYPE.OTP_VIA_MOBILE]: (event) => {
+      event?.preventDefault()
+    }
   }
 
   const getVerifyLoginHandlerFor = {
     [LOGIN_TYPE.OTP_VIA_AADHAR]: (event) => {
-      // TODO: verify OTP
+      event?.preventDefault()
     },
     [LOGIN_TYPE.OTP_VIA_MOBILE]: (event) => {
-      // TODO: verify OTP
-    },
-    [LOGIN_TYPE.PERSONAL_DETAILS]: (event) => {
-      // TODO: login using personal details
+      event?.preventDefault()
     }
   }
 
@@ -74,17 +108,30 @@ export default function UserLogin () {
     {/* <div></div> Header */}
     <div className="justify-center flex">
       <FormBox>
-        <CustomInput label={'ABHA Number'} placeholder={'Enter ABHA Number'} onChange={handleAbhaNumberOnChange} disabled={loginFlowStarted}></CustomInput>
-        <p className="font-bold text-xl mt-5 mb-3">Login Using:</p>
-        {getLoginTypeRadioBox('Personal Details', LOGIN_TYPE.PERSONAL_DETAILS)}
-        {getLoginTypeRadioBox('OTP via Aadhar Number', LOGIN_TYPE.OTP_VIA_AADHAR)}
-        {getLoginTypeRadioBox('OTP via Mobile Number (Aadhaar not linked)', LOGIN_TYPE.OTP_VIA_MOBILE)}
+        <p className="font-bold text-xl mt-2 mb-3">Login Using:</p>
+        {getLoginTypeRadioBox('ABHA Number', LOGIN_TYPE.OTP_VIA_AADHAR)}
+        {getLoginTypeRadioBox('Mobile Number', LOGIN_TYPE.OTP_VIA_MOBILE)}
 
-        {loginFlowStarted && currentLoginType && <> <div>
+        <div className="mt-8">
+          {
+            loginFlowStarted && currentLoginType && <>
+              {
+                currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR &&
+                <CustomInput className="mt-12" label={'ABHA Number'} placeholder={'Enter ABHA Number'} onChange={handleAbhaNumberOnChange} disabled={otpSent}></CustomInput>
+              }
+              {
+                currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE &&
+                <CustomInput className="mt-12" label={'Mobile Number'} placeholder={'Enter Mobile Number (without country code)'} onChange={handleMobileNumberOnChange} disabled={otpSent}></CustomInput>
+              }
+            </>
+          }
+        </div>
+
+        {otpSent && currentLoginType && <> <div>
           {currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR && loginWithOTP('Enter OTP (OTP sent to aadhaar linked mobile number)')}
         </div>
         <div>
-          {currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE && loginWithOTP('Enter OTP (OTP sent to ABHA linked mobile number)')}
+          {otpSent && currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE && loginWithOTP('Enter OTP (OTP sent to ABHA linked mobile number)')}
 
         </div>
         {currentLoginType === LOGIN_TYPE.PERSONAL_DETAILS && <div>
@@ -104,10 +151,13 @@ export default function UserLogin () {
           </div>
         </div>}</>}
 
-        {!loginFlowStarted &&
-           <PatientLoginFormButtons onLoginClick={handleStartLoginFlow} />}
+        {!loginFlowStarted && !otpSent &&
+          <PatientLoginFormButtons onLoginClick={handleStartLoginFlow} />}
 
-        {loginFlowStarted && currentLoginType && <>
+        {loginFlowStarted && !otpSent &&
+          <PatientLoginFormButtons onLoginClick={handleSendOTP} />}
+
+        {otpSent && currentLoginType && <>
           {currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR &&
             <PatientLoginFormButtons
               onValidateOTPClick={getVerifyLoginHandlerFor[LOGIN_TYPE.OTP_VIA_AADHAR]}
