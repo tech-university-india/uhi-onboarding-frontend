@@ -1,4 +1,4 @@
-import logo from '../Assets/uhi-logo.png';
+import logo from '../assets/uhi-logo.png';
 import Image from 'next/image';
 import { useState } from "react";
 import { useRouter } from "next/router";
