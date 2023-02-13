@@ -15,7 +15,7 @@ export default function UserLogin () {
   const [otpSent, setOtpSent] = React.useState(false)
 
   const getLoginTypeRadioBox = (label, type) => <div className="mb-3 text-xl" >
-    <input disabled={loginFlowStarted} type="radio" value={type} id={type} onChange={(e) => {
+    <input disabled={otpSent} type="radio" value={type} id={type} onChange={(e) => {
       setCurrentLoginType(e.target.value)
     }} name="loginType" className="mr-3" /><label htmlFor={type}>{label}</label>
   </div>
@@ -134,22 +134,7 @@ export default function UserLogin () {
           {otpSent && currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE && loginWithOTP('Enter OTP (OTP sent to ABHA linked mobile number)')}
 
         </div>
-        {currentLoginType === LOGIN_TYPE.PERSONAL_DETAILS && <div>
-          <p className="font-bold text-xl mt-8 mb-5">Login with Personal Details</p>
-          <CustomInput label={'Name'} placeholder={'Enter the name'} />
-          <br />
-          <div className="flex justify-between">
-            <div className="flex-row">
-              <div className="flex">
-                <label htmlFor="gender">Gender</label> <div className="text-red-500 font-medium text-2xl">&nbsp;*</div>
-              </div>
-              <select className="w-full border rounded-md px-5 pt-4 pb-5 outline-none focus:shadow-outline" name="gender" id="gender">
-                {['Male', 'Female'].map(element => <option key={Math.random()} value={element}>{element}</option>)}
-              </select>
-            </div>
-            <CustomInput label={'Year of Birth'} placeholder={'Enter Year'} type={'number'} />
-          </div>
-        </div>}</>}
+        </>}
 
         {!loginFlowStarted && !otpSent &&
           <PatientLoginFormButtons onLoginClick={handleStartLoginFlow} />}
