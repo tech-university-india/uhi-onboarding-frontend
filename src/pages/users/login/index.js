@@ -1,6 +1,7 @@
 import CustomInput from '@/components/CustomInput'
 import FormBox from '@/components/FormBox'
 import LoginFormButtons from '@/components/LoginFormButtons'
+import PulseLoader from 'react-spinners/PulseLoader'
 import React from 'react'
 
 const LOGIN_TYPE = {
@@ -12,6 +13,7 @@ export default function UserLogin () {
   const [mobileNumber, setMobileNumber] = React.useState('')
   const [currentLoginType, setCurrentLoginType] = React.useState(undefined)
   const [loginFlowStarted, setLoginFlowStarted] = React.useState(false)
+  const [otpSending, setOtpSending] = React.useState(false)
   const [otpSent, setOtpSent] = React.useState(false)
 
   const getLoginTypeRadioBox = (label, type) => <div className="mb-3 text-xl" >
@@ -68,10 +70,8 @@ export default function UserLogin () {
 
     if (currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR && abhaNumber !== '') {
       getSendOTPHandlerFor[currentLoginType](event)
-      setOtpSent(true)
     } else if (currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE && mobileNumber !== '') {
       getSendOTPHandlerFor[currentLoginType](event)
-      setOtpSent(true)
     } else {
       event.preventDefault()
     }
@@ -80,10 +80,34 @@ export default function UserLogin () {
   const getSendOTPHandlerFor = {
     [LOGIN_TYPE.OTP_VIA_AADHAR]: (event) => {
       event?.preventDefault()
+
+      startSendingOTP()
+
+      // TODO: put OTP sending logic here
+      setTimeout(() => {
+        stopSendingOTP()
+      }, 1500)
     },
     [LOGIN_TYPE.OTP_VIA_MOBILE]: (event) => {
       event?.preventDefault()
+
+      startSendingOTP()
+
+      // TODO: place OTP sending logic here
+      setTimeout(() => {
+        stopSendingOTP()
+      }, 1500)
     }
+  }
+
+  const startSendingOTP = () => {
+    setOtpSending(true)
+    setOtpSent(false)
+  }
+
+  const stopSendingOTP = () => {
+    setOtpSent(true)
+    setOtpSending(false)
   }
 
   const getResendOTPHandlerFor = {
@@ -126,6 +150,15 @@ export default function UserLogin () {
             </>
           }
         </div>
+
+        {otpSending && !otpSent && currentLoginType && <>
+          <div className="flex items-center justify-center mt-12">
+            <div className="flex flex-col items-center justify-center">
+              <PulseLoader color="#15803c" size={20} />
+              <div className="mt-3">Sending OTP</div>
+            </div>
+          </div>
+        </>}
 
         {otpSent && currentLoginType && <> <div>
           {currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR && loginWithOTP('Enter OTP (OTP sent to aadhaar linked mobile number)')}
