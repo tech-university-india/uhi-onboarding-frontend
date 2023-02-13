@@ -1,6 +1,6 @@
 import CustomInput from '@/components/CustomInput'
 import FormBox from '@/components/FormBox'
-import PatientLoginFormButtons from '@/components/PatientLoginFormButtons'
+import LoginFormButtons from '@/components/LoginFormButtons'
 import React from 'react'
 
 const LOGIN_TYPE = {
@@ -137,28 +137,28 @@ export default function UserLogin () {
         </>}
 
         {!loginFlowStarted && !otpSent &&
-          <PatientLoginFormButtons onLoginClick={handleStartLoginFlow} />}
+          <LoginFormButtons onLoginClick={handleStartLoginFlow} />}
 
         {loginFlowStarted && !otpSent &&
-          <PatientLoginFormButtons onLoginClick={handleSendOTP} />}
+          <LoginFormButtons onLoginClick={handleSendOTP} />}
 
         {otpSent && currentLoginType && <>
           {currentLoginType === LOGIN_TYPE.OTP_VIA_AADHAR &&
-            <PatientLoginFormButtons
+            <LoginFormButtons
               onValidateOTPClick={getVerifyLoginHandlerFor[LOGIN_TYPE.OTP_VIA_AADHAR]}
               onResendOTPClick={getResendOTPHandlerFor[LOGIN_TYPE.OTP_VIA_AADHAR]}
             />
           }
 
           {currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE &&
-            <PatientLoginFormButtons
+            <LoginFormButtons
               onValidateOTPClick={getVerifyLoginHandlerFor[LOGIN_TYPE.OTP_VIA_MOBILE]}
               onResendOTPClick={getResendOTPHandlerFor[LOGIN_TYPE.OTP_VIA_MOBILE]}
             />
           }
 
           {currentLoginType === LOGIN_TYPE.PERSONAL_DETAILS &&
-            <PatientLoginFormButtons onLoginClick={getVerifyLoginHandlerFor[LOGIN_TYPE.PERSONAL_DETAILS]} />
+            <LoginFormButtons onLoginClick={getVerifyLoginHandlerFor[LOGIN_TYPE.PERSONAL_DETAILS]} />
           }
         </>}
       </FormBox>

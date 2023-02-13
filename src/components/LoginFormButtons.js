@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PatientLoginFormButtons ({ onLoginClick, onResendOTPClick, onValidateOTPClick }) {
+function LoginFormButtons ({ onLoginClick, onResendOTPClick, onValidateOTPClick }) {
   return (onLoginClick && !onResendOTPClick && !onValidateOTPClick)
     ? (<>
       <div className="flex justify-evenly w-full mt-8">
@@ -17,4 +17,4 @@ function PatientLoginFormButtons ({ onLoginClick, onResendOTPClick, onValidateOT
     )
 }
 
-export default PatientLoginFormButtons
+export default LoginFormButtons
