@@ -1,6 +1,5 @@
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import "../app/globals.css";
 import logo from '../assets/ABDM_English_Logo_with_tagline_aea4f8d600.png';
 import hamburger from '../assets/Hamburger_icon.svg.png'
 import Image from 'next/image'

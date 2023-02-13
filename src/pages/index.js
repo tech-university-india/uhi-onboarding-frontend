@@ -1,12 +1,23 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Info from "@/components/Info";
-import NavBar from "@/components/Navbar";
-import screenText from "screenText";
+import { Inter } from '@next/font/google'
+import Footer from '@/components/Footer.jsx'
+import Navbar from '@/components/Navbar.jsx'
+import Header from '@/components/Header.jsx'
+import Info from '@/components/Info'
+import screenText from 'screenText'
+import UHIImage from '@/assets/uhi_diagram.png'
 
-export default function Index() {return  <div className='absolute'>
-<NavBar />
-<Header header={screenText.about.general.header} />
-<Info info= {screenText.about.general.info} imagePath={UHIImage} />
-<Footer />
-</div>}
+const inter = Inter({ subsets: ['latin'] })
+
+export default function Home() {
+  return (
+    <>
+      <div className='absolute'>
+          <Navbar />
+          <Header header={screenText.about.general.header} />
+          <Info info= {screenText.about.general.info} imagePath={UHIImage} />
+          <Footer />
+      </div>
+    </>
+  )
+
+};
