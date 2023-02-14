@@ -13,9 +13,7 @@ The documentation can be found [here](https://tech-university-india.github.io/uh
 
 ## Design
 
-Figma screen for about page - [About Page](https://www.figma.com/file/VMJmqlCNVRj8YWjuWF1H54/Untitled?node-id=0%3A1&t=7CLORIbBfPFmV7UW-0)
-
-Figma screen for doctors & patients login - [Patient Login](https://www.figma.com/file/3tVWpUfCRoZlt9GKZElhBW/ABDM-Assets-Patient-Login?node-id=18%3A134&t=jem9lwwTLWASIsJJ-0)
+Figma screens can be found [here](https://www.figma.com/file/yjLTdifmU1Duwl017POo2D/ABDM?node-id=0%3A1)
 
 
 
