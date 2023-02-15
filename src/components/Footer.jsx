@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import qr from '../assets/qrcode.png';
-export default function Navbar() {
+import qr from '../assets/QR_code_for_mobile_English_Wikipedia.svg.webp';
+export default function Footer() {
   return (
     <footer className="w-full bg-uhigreen fixed bottom-0">
       <div className="container mx-auto grid-cols-1 pt-6 pb-2  md:grid-cols-3 md:gap-5 flex justify-between">
