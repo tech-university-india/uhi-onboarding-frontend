@@ -130,7 +130,7 @@ export default function UserLogin () {
 
   return <>
     {/* <div></div> Header */}
-    <div className="justify-center flex">
+    <div className="justify-center flex pb-16">
       <FormBox>
         <p className="font-bold text-xl mt-2 mb-3">Login Using:</p>
         {getLoginTypeRadioBox('ABHA Number', LOGIN_TYPE.OTP_VIA_AADHAR)}
