@@ -1,11 +1,9 @@
-import Footer from "@/components/Footer";
-import RegistrationForm from "@/components/RegistrationForm";
+import RegistrationForm from '@/components/RegistrationForm'
 
-export default function OTPRegistration() {
-    return (<div>
-            <RegistrationForm />
-            <Footer />
+export default function OTPRegistration () {
+  return (
+    <div>
+      <RegistrationForm />
     </div>
-        
-    );
+  )
 }
