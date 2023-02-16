@@ -1,6 +1,6 @@
 import CustomInput from '@/components/CustomInput'
 import FormBox from '@/components/FormBox'
-import LoginFormButtons from '@/components/LoginFormButtons'
+import LoginFormButtons from '@/components/routes/login/user/LoginFormButtons'
 import PulseLoader from 'react-spinners/PulseLoader'
 import React from 'react'
 

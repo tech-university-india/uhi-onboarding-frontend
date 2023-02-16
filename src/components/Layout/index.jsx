@@ -1,4 +1,4 @@
-import './globals.css'
+import React from 'react'
 
 export default function RootLayout ({ children }) {
   return (
@@ -11,7 +11,6 @@ export default function RootLayout ({ children }) {
       <body>
         {children}
       </body>
-
     </html>
   )
 }

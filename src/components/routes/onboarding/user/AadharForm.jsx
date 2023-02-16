@@ -1,42 +1,37 @@
-import logo from '../Assets/uhi-logo.png';
-import Image from 'next/image';
-import { useState } from "react";
-import { useRouter } from "next/router";
-import Link from 'next/link';
-import RegistrationForm from './RegistrationForm';
-import Alert from './Alert';
-import AadharConditional from './AadharConditional';
 
-function AadharForm(props) {
+import React, { useState } from 'react'
+import Link from 'next/link'
+import Alert from '../../../Alert/Alert'
+import AadharConditional from './AadharConditional'
+import UhiLogo from '@/components/images/UhiLogo'
 
-  const [input, setInput] = useState('');
-  const [valid, setValid] = useState(false);
-  const [alert, setAlert] = useState(false);
+function AadharForm (props) {
+  const [input, setInput] = useState('')
+  const [valid, setValid] = useState(false)
+  const [alert, setAlert] = useState(false)
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     // advanced aadhar validation regex with optional space
-    const validationRegex = /^\d{4}\s?\d{4}\s?\d{4}$/;
+    const validationRegex = /^\d{4}\s?\d{4}\s?\d{4}$/
 
     if (!validationRegex.test(input)) {
-      setAlert(true);
-      setInput('');
-    }
-    else {
-      setAlert(false);
-      setValid(true);
+      setAlert(true)
+      setInput('')
+    } else {
+      setAlert(false)
+      setValid(true)
     }
   }
 
   return (
 
-
     <div className="antialiased text-gray-900 font-sans">
       <div className="items-center h-screen w-full">
         <div className="w-full bg-white rounded shadow-xl p-12 m-8 md:max-w-xl md:mx-auto">
           <form className="mb-4" method="GET">
-            <Image src={logo} alt="UHI Logo" className='w-max' />
+            <UhiLogo />
             <div className="mb-6 ">
               <label htmlFor="aadharNum" className="block text-xs mb-1">Aadhar Number</label>
               <input onChange={(e) => setInput(e.target.value)} value={input} className="w-full border rounded p-2 outline-none focus:shadow-outline" type="aadharInput" name="aadharInput" id="aadharInput" placeholder="Aadhar Number"></input>
@@ -53,7 +48,7 @@ function AadharForm(props) {
                 valid && <AadharConditional />
               }
               {
-                !valid && <Link href='/onboarding/user/otp'><button className="bg-green-700 hover:bg-black text-white  text-lg font-semibold px-4 py-2 rounded" onClick={handleSubmit} > Send OTP</button></Link>
+                !valid && <Link href="/onboarding/user/otp"><button className="bg-green-700 hover:bg-black text-white  text-lg font-semibold px-4 py-2 rounded" onClick={handleSubmit} > Send OTP</button></Link>
               }
             </div>
           </form>
@@ -63,4 +58,4 @@ function AadharForm(props) {
 
   )
 }
-export default AadharForm;
+export default AadharForm
