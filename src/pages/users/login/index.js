@@ -34,7 +34,7 @@ export default function UserLogin () {
       return
     }
     // abha number regex
-    const abhaRegex = /^[0-9]{10}$/
+    const abhaRegex = /^[0-9]{14}$/
     if (abhaRegex.test(input)) {
       setAbhaNumber(input)
     } else {
@@ -49,7 +49,7 @@ export default function UserLogin () {
       return
     }
     // mobile number regex
-    const mobileRegex = /^[0-9]{10}$/
+    const mobileRegex = /^[1-9]{1}[0-9]{9}$/
     if (mobileRegex.test(input)) {
       setMobileNumber(input)
     } else {
