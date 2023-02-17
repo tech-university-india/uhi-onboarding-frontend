@@ -38,7 +38,6 @@ export default function Footer () {
   return (
     <footer className="w-full bg-uhigreen">
       <div className="flex justify-evenly p-3">
-
         {footerChildren.map((child) => {
           return (
             <div key={Math.random()}>
@@ -48,7 +47,10 @@ export default function Footer () {
               <ul className="text-m hidden md:block">
                 {child.elements.map((element) => {
                   return (
-                    <li key={Math.random()} className="mb-2">
+                    <li
+                      key={Math.random()}
+                      className="mb-2"
+                    >
                       {element.custom
                         ? (
                           element.value
@@ -65,9 +67,7 @@ export default function Footer () {
             </div>
           )
         })}
-
       </div>
-
     </footer>
   )
 }
