@@ -3,44 +3,71 @@ import React from 'react'
 import qr from '../../assets/QR_code_for_mobile_English_Wikipedia.svg.webp'
 
 export default function Footer () {
+  const footerChildren = [
+    {
+      title: 'Important Links',
+      elements: [
+        { value: 'Health Facility Registry' },
+        { value: 'Health Professionals Registry' }
+      ]
+    },
+    {
+      title: 'Policies',
+      elements: [
+        { value: 'Data Privacy' },
+        { value: 'Policy Terms and Conditions' }
+      ]
+    },
+    {
+      title: 'Patient Locker',
+      elements: [
+        {
+          custom: true,
+          value: (
+            <Image
+              src={qr}
+              alt=""
+              className="h-12 w-12 ml-12"
+            ></Image>
+          )
+        }
+      ]
+    }
+  ]
+
   return (
-    <footer className="w-full bg-uhigreen h-30">
-      <div className="container mx-auto grid-cols-1 pt-6 pb-2  md:grid-cols-3 md:gap-5 flex justify-between">
-        <div>
-          <h2 className="font-bold text-2xl font-sans mb-2.5">Important Links</h2>
-          <ul className="text-m hidden md:block">
-            <li className="mb-4">
-              <a className="text-black text-lg font-sans">Health Facility Registery</a>
-            </li>
+    <footer className="w-full bg-uhigreen">
+      <div className="flex justify-evenly p-3">
 
-            <li className="mb-4">
-              <a className="text-black text-lg font-sans">Health Professionals Registery</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="font-bold text-2xl font-sans mb-2.5">Policies</h2>
-          <ul className="text-m hidden md:block">
-            <li className="mb-4">
-              <a className="text-black text-lg font-sans">Data Privacy</a>
+        {footerChildren.map((child) => {
+          return (
+            <div key={Math.random()}>
+              <h2 className="font-bold text-2xl font-sans mb-2.5">
+                {child.title}
+              </h2>
+              <ul className="text-m hidden md:block">
+                {child.elements.map((element) => {
+                  return (
+                    <li key={Math.random()} className="mb-2">
+                      {element.custom
+                        ? (
+                          element.value
+                        )
+                        : (
+                          <a className="text-black text-lg font-sans">
+                            {element.value}
+                          </a>
+                        )}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )
+        })}
 
-            </li>
-            <li className="mb-4">
-              <a className="text-black text-lg font-sans">Policy Terms and Conditions</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="font-bold text-2xl font-sans mb-2.5 ">Patient Locker</h2>
-          <ul className="textß-m hidden md:block">
-            <li className="mb-4 ">
-              <a className="hover:underline ">
-                <Image src={qr} alt="" className="h-12 w-12 ml-12"></Image>
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
+
     </footer>
   )
-};
+}
