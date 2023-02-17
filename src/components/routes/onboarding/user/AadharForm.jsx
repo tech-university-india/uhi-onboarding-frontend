@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Alert from '../../../Alert/Alert'
+import Alert from '../../../Alert'
 import AadharConditional from './AadharConditional'
 import UhiLogo from '@/components/images/UhiLogo'
 
