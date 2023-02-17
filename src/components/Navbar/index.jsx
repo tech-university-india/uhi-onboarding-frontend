@@ -27,6 +27,9 @@ export default function NavBar () {
           <Link href="/onboarding/user">
             <li className="hover:font-bold hover:bg-green-500 hover:rounded-full text-2xl p-2">Register</li>
           </Link>
+          <Link href="/users/login">
+            <li className="hover:font-bold hover:bg-green-500 hover:rounded-full text-2xl p-2">Login</li>
+          </Link>
 
         </ul>
         <Image src={hamburger} alt="" className="w-10 h-10 rounded-full md:hidden cur"></Image>
