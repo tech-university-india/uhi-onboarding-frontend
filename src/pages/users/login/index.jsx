@@ -87,7 +87,7 @@ export default function UserLogin () {
       // API LOGIC
     } catch (error) {
       // Show SnackBar Error
-      snackBar.showSnackbar(error.message)
+      snackBar.showSnackbar({ title: error.message })
     }
   }
 
