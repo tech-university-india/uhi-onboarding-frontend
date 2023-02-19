@@ -12,11 +12,13 @@ export default function MyApp ({ Component, pageProps }) {
       <Head />
       <div className="flex flex-col min-h-screen justify-between">
         <NavBar />
-        <div className="w-[100%] grow">
-          <Snackbar>
+        {/* <div className="w-[100%] h-[100%] flex flex-col grow"> */}
+        <Snackbar>
+          <div className="flex-grow min-h-[100%] w-[100%] flex flex-col">
             <Component {...pageProps} />
-          </Snackbar>
-        </div>
+          </div>
+        </Snackbar>
+        {/* </div> */}
         <Footer />
       </div>
     </>
