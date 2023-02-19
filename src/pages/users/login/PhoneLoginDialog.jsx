@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import React from 'react'
-import { login } from '../../../../screenText'
+import screenText from '../../../../screenText'
 
 export default function PhoneLoginDialog ({ handlePhoneLoginUserSelection, users }) {
   const [selectedUser, setSelectedUser] = React.useState(-1)
   return <div className="flex flex-col">
     <div className="my-5 ">
       <p className="text-xl font-semibold">
-        {login.phoneDialogTitle}
+        {screenText.login.phoneDialogTitle}
       </p>
     </div>
     {users.map((user, index) => (
