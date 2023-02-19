@@ -28,7 +28,7 @@ function AadharForm (props) {
   return (
 
     <div className="antialiased text-gray-900 font-sans">
-      <div className="items-center h-screen w-full">
+      <div className="items-center w-full">
         <div className="w-full bg-white rounded shadow-xl p-12 m-8 md:max-w-xl md:mx-auto">
           <form className="mb-4" method="GET">
             <UhiLogo />

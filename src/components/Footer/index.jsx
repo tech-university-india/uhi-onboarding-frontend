@@ -5,7 +5,7 @@ import screenText from '../../../screenText'
 
 export default function Footer () {
   const CustomComponent = ({ value }) => {
-    if (value === 'qr') { return <Image src={qr} alt="" className="h-12 w-12 ml-12"></Image> }
+    if (value === 'qr') { return <Image src={qr} alt="" className=" h-12 w-12 ml-12"></Image> }
     return <></>
   }
 
@@ -18,7 +18,7 @@ export default function Footer () {
               <h2 className="font-bold text-2xl font-sans mb-2.5">
                 {child.title}
               </h2>
-              <ul className="text-m hidden md:block">
+              <ul className="text-m md:block">
                 {child.elements.map((element) => {
                   return (
                     <li

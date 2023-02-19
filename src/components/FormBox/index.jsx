@@ -5,15 +5,14 @@ const FormBox = ({
   children,
   buttons
 }) => {
-  return (<div className="antialiased text-gray-900 font-sans mt-12">
-    <div className="items-center h-screen w-full">
-      <div className="bg-white w-full flex-row justify-center rounded shadow-xl p-12 m-8 md:max-w-xl">
-        <UhiLogo />
-        <form className="mb-2">
-          <div className="m-5 mb-2">{children}</div>
-        </form>
-      </div>
+  return (<div className="antialiased text-gray-900 font-sans">
+    <div className="bg-white flex-row justify-center rounded shadow-xl p-12 max-w-2xl">
+      <UhiLogo />
+      <form >
+        <div >{children}</div>
+      </form>
     </div>
+
   </div>)
 }
 
