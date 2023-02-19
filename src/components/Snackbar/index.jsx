@@ -1,22 +1,21 @@
 import React, { createContext, useContext, useState } from 'react'
-export const SnackbarContext = createContext({ setEnabled: () => {} })
+export const SnackbarContext = createContext({
+  showSnackbar: (title, duration) => undefined
+})
 export default function Snackbar ({ children }) {
   const [enabled, setEnabled] = useState(false)
-
-  const snackmessages = {
-    login: 'Login Successfully',
-    logout: 'Logout Successfully',
-    error: 'Something Error has Occured',
-    info: 'Your details has been updated',
-    warning: 'Please select a valid option'
+  const [content, setContent] = useState('')
+  const showSnackbar = (title, duration = 5000) => {
+    setEnabled(true)
+    setContent(title)
+    setTimeout(() => {
+      setEnabled(false)
+    }, duration)
   }
 
   return (
-    <SnackbarContext.Provider value={{ setEnabled }}>
-      {children}
+    <SnackbarContext.Provider value={{ showSnackbar }}>
       <div className={enabled ? 'relative' : 'hidden'}>
-        {/* SHREYAS MAKE CODE FOR SNACKBAR HERE */}
-
         <div className="sm:mx-auto max-w-sm h-14 w-72 flex flex-row items-center justify-between bg-green-200 p-3 text-sm leading-none font-medium rounded-xl whitespace-no-wrap absolute bottom-0 left-0">
           <div className="inline-flex items-center text-green-500">
             <svg
@@ -31,7 +30,7 @@ export default function Snackbar ({ children }) {
                 clipRule="evenodd"
               />
             </svg>
-            {snackmessages.login}
+            {content}
           </div>
           <button
             onClick={() => setEnabled(true)}
@@ -52,6 +51,7 @@ export default function Snackbar ({ children }) {
           </button>
         </div>
       </div>
+      {children}
     </SnackbarContext.Provider>
   )
 }
