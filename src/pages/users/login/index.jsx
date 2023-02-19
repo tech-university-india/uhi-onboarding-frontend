@@ -7,6 +7,7 @@ import PhoneLoginDialog from './PhoneLoginDialog'
 import CustomButton from '@/components/CustomButton'
 import { PulseLoader } from 'react-spinners'
 import { validatePhoneNumber, validateAbhaNumber } from '@/utils/validators'
+import screenText from 'screenText'
 
 const LOGIN_TYPE = {
   OTP_VIA_ABHA: 'ABHA',
@@ -52,12 +53,12 @@ export default function UserLogin () {
   )
   const loginWithOTP = (label) => (
     <>
-      <p className="font-bold text-xl my-6 pl-1">Login with OTP</p>
+      <p className="font-bold text-xl my-6 pl-1">{screenText.login.loginWithOtp}</p>
       <CustomInput
         value={otpValue}
         onChange={handleOTPInputOnChange}
         label={label}
-        placeholder={'Enter OTP'}
+        placeholder={screenText.login.otpPlaceholder}
       />
     </>
   )
@@ -118,13 +119,13 @@ export default function UserLogin () {
 
       <div className="flex-grow flex m-10 justify-center items-center">
         <FormBox>
-          <p className="font-bold text-xl mt-2 mb-3">Login Using:</p>
+          <p className="font-bold text-xl mt-2 mb-3">{screenText.login.loginUsing}</p>
           {getLoginTypeRadioBox(
-            'ABHA Number',
+            screenText.login.ABHA,
             LOGIN_TYPE.OTP_VIA_ABHA
           )}
           {getLoginTypeRadioBox(
-            'Mobile Number',
+            screenText.login.MOBILE,
             LOGIN_TYPE.OTP_VIA_MOBILE
           )}
           <div className="mt-8">
@@ -134,16 +135,14 @@ export default function UserLogin () {
                   value={credentials}
                   className="mt-12"
                   label={
-                    currentLoginType ===
-                                        LOGIN_TYPE.OTP_VIA_MOBILE
-                      ? 'Mobile Number'
-                      : 'ABHA Number'
+                    screenText.login[currentLoginType]
+
                   }
                   placeholder={
                     currentLoginType ===
                                         LOGIN_TYPE.OTP_VIA_MOBILE
-                      ? 'Enter Mobile Number (without country code)'
-                      : 'Enter your ABHA Number'
+                      ? screenText.login.enterMobilePlaceholder
+                      : screenText.login.enterAbhaPlaceholder
                   }
                   onChange={handleCredentialsInputOnChange}
                   disabled={
@@ -159,7 +158,7 @@ export default function UserLogin () {
               disabled={
                 OTP_STATUS.SENDING === currentOtpStatus
               }
-              text={'Send OTP'}
+              text={screenText.login.sendOtp}
               onClick={handleSendOTP}
             />
           )}
@@ -173,7 +172,7 @@ export default function UserLogin () {
                     color="#15803c"
                     size={20}
                   />
-                  <div className="mt-3">Sending OTP</div>
+                  <div className="mt-3">{screenText.login.sendingOtp}</div>
                 </div>
               </div>
             </>
@@ -184,16 +183,16 @@ export default function UserLogin () {
             <>
               {loginWithOTP(
                 currentLoginType === LOGIN_TYPE.OTP_VIA_ABHA
-                  ? 'Enter OTP (OTP sent to ABHA linked mobile number)'
-                  : 'Enter OTP (OTP sent to aadhaar linked mobile number)'
+                  ? screenText.login.abhaEnterOtpPlaceholder
+                  : screenText.login.phoneEnterOtpPlaceholder
               )}
               <div className="flex justify-around">
                 <CustomButton
-                  text={'Resend OTP'}
+                  text={screenText.login.resendOtp}
                   onClick={handleResendOtp}
                 />
                 <CustomButton
-                  text={'Validate OTP'}
+                  text={screenText.login.validateOtp}
                   onClick={handleValidateOtp}
                 />
               </div>

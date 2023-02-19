@@ -1,7 +1,23 @@
 const screenText = {
   login: {
-    phoneDialogTitle: 'Looks like there are more than one account linked with this mobile number. Please select the account you want'
+    phoneDialogTitle: 'Looks like there are more than one account linked with this mobile number. Please select the account you want',
+    loginWithOtp: 'Login with OTP',
+    loginWithPassword: 'Login with Password',
+    loginUsing: 'Login using:',
+    otpPlaceholder: 'Enter OTP',
+    ABHAPlaceholder: 'Enter ABHA Number',
+    mobilePlaceholder: 'Enter Mobile Number',
+    ABHA: 'ABHA Number',
+    MOBILE: 'Mobile Number',
+    enterMobilePlaceholder: 'Enter Mobile Number (without country code)',
 
+    enterAbhaPlaceholder: 'Enter ABHA Number',
+    sendOtp: 'Send OTP',
+    sendingOtp: 'Sending OTP',
+    abhaEnterOtpPlaceholder: 'Enter OTP (OTP sent to ABHA linked mobile number)',
+    phoneEnterOtpPlaceholder: 'Enter OTP (OTP sent to mobile number)',
+    resendOtp: 'Resend OTP',
+    validateOtp: 'Validate OTP'
   },
 
   about: {
