@@ -2,7 +2,9 @@ import CustomInput from '@/components/CustomInput'
 import FormBox from '@/components/FormBox'
 import LoginFormButtons from '@/components/routes/login/user/LoginFormButtons'
 import PulseLoader from 'react-spinners/PulseLoader'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { SnackBarController } from '@/components/Snackbar'
+import Dialog from '@/components/DialogBox'
 
 const LOGIN_TYPE = {
   OTP_VIA_AADHAR: 'AADHAAR_OTP', OTP_VIA_MOBILE: 'MOBILE_OTP'
@@ -128,8 +130,16 @@ export default function UserLogin () {
     }
   }
 
+  const snackBar = SnackBarController()
+  useEffect(() => {
+    setTimeout(() => {
+      snackBar.setEnabled(true)
+    }, 3000)
+  }, [])
+
   return <>
     {/* <div></div> Header */}
+    <Dialog isOpen={true} />
     <div className="justify-center flex pb-16">
       <FormBox>
         <p className="font-bold text-xl mt-2 mb-3">Login Using:</p>
