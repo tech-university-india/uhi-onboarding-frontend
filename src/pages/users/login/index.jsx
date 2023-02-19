@@ -64,7 +64,7 @@ export default function UserLogin () {
 
   // Button Handlers
   const handlePhoneLoginUserSelection = (selectedUser) => {
-    snackBar.showSnackbar({ title: `User ${users[selectedUser].name} selected` })
+    snackBar.showSnackbar({ title: `User ${users[selectedUser].name} selected`, type: 'success' })
     showDialog(false)
   }
 
@@ -87,7 +87,7 @@ export default function UserLogin () {
       // API LOGIC
     } catch (error) {
       // Show SnackBar Error
-      snackBar.showSnackbar({ title: error.message })
+      snackBar.showSnackbar({ title: error.message, type: 'error' })
     }
   }
 
