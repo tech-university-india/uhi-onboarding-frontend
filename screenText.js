@@ -1,4 +1,9 @@
 const screenText = {
+  login: {
+    phoneDialogTitle: 'Looks like there are more than one account linked with this mobile number. Please select the account you want'
+
+  },
+
   about: {
     doctors: {
       header: 'DOCTORS',

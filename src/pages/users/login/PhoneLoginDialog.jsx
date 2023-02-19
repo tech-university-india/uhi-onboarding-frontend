@@ -1,14 +1,13 @@
 import classNames from 'classnames'
 import React from 'react'
+import { login } from '../../../../screenText'
 
 export default function PhoneLoginDialog ({ handlePhoneLoginUserSelection, users }) {
   const [selectedUser, setSelectedUser] = React.useState(-1)
   return <div className="flex flex-col">
     <div className="my-5 ">
       <p className="text-xl font-semibold">
-          Looks like there are more than one account linked with this
-              mobile number. Please select the account you want
-
+        {login.phoneDialogTitle}
       </p>
     </div>
     {users.map((user, index) => (
@@ -20,6 +19,6 @@ export default function PhoneLoginDialog ({ handlePhoneLoginUserSelection, users
         <div className={classNames(`${selectedUser === index ? 'bg-green-600' : 'bg-white'}`, 'w-4 self-center h-4 rounded-full')} >{' '}</div>
       </div>
     ))}
-    <button className="shadow-2xl hover:shadow-none self-end mt-5 bg-green-600 px-6 py-3 rounded-md text-white font-bold" onClick={() => handlePhoneLoginUserSelection(selectedUser)} disabled={selectedUser === -1}>LOGIN</button>
+    <button className="disabled:bg-gray-400 shadow-2xl hover:shadow-none self-end mt-5 bg-green-600 px-6 py-3 rounded-md text-white font-bold" onClick={() => handlePhoneLoginUserSelection(selectedUser)} disabled={selectedUser === -1}>LOGIN</button>
   </div>
 }
