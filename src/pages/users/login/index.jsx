@@ -1,7 +1,7 @@
 import CustomInput from '@/components/CustomInput'
 import FormBox from '@/components/FormBox'
 import LoginFormButtons from '@/components/routes/login/user/LoginFormButtons'
-import PulseLoader from 'react-spinners/PulseLoader'
+// import PulseLoader from 'react-spinners/PulseLoader'
 import React, { useEffect } from 'react'
 import { SnackBarController } from '@/components/Snackbar'
 import Dialog from '@/components/DialogBox'
@@ -164,7 +164,7 @@ export default function UserLogin () {
         {otpSending && !otpSent && currentLoginType && <>
           <div className="flex items-center justify-center mt-12">
             <div className="flex flex-col items-center justify-center">
-              <PulseLoader color="#15803c" size={20} />
+              {/* <PulseLoader color="#15803c" size={20} /> */}
               <div className="mt-3">Sending OTP</div>
             </div>
           </div>
