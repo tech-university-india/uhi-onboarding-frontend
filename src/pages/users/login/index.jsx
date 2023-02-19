@@ -28,6 +28,7 @@ export default function UserLogin () {
   const [otpValue, setOtpValue] = React.useState('')
   const [currentLoginType, setCurrentLoginType] = React.useState(undefined)
   const [currentOtpStatus, setCurrentOtpStatus] = React.useState(OTP_STATUS.NONE)
+  const [users, setUsers] = React.useState([])
   const [dialog, showDialog] = React.useState(false)
 
   // Local Component Functions
@@ -62,6 +63,10 @@ export default function UserLogin () {
   )
 
   // Button Handlers
+  const handlePhoneLoginUserSelection = (selectedUser) => {
+    snackBar.showSnackbar({ title: `User ${users[selectedUser].name} selected` })
+    showDialog(false)
+  }
 
   const handleSendOTP = (event) => {
     event.preventDefault()
@@ -73,6 +78,7 @@ export default function UserLogin () {
                 currentLoginType === LOGIN_TYPE.OTP_VIA_ABHA
                   ? validateAbhaNumber(credentials)
                   : validatePhoneNumber(credentials)
+
       setCurrentOtpStatus(OTP_STATUS.SENDING)
       setTimeout(() => {
         setCurrentOtpStatus(OTP_STATUS.SENT)
@@ -86,7 +92,19 @@ export default function UserLogin () {
   }
 
   const handleResendOtp = (e) => { e.preventDefault() }
-  const handleValidateOtp = (e) => { e.preventDefault() }
+  const handleValidateOtp = (e) => {
+    e.preventDefault()
+    if (currentLoginType === LOGIN_TYPE.OTP_VIA_MOBILE) {
+      // Show Dialog
+      setUsers([
+        { healthId: '143453535', name: 'Saatwik' },
+        { healthId: '143453535', name: 'Saatwik' },
+        { healthId: '143453535', name: 'Saatwik' },
+        { healthId: '143453535', name: 'Saatwik' }
+      ])
+      showDialog(true)
+    }
+  }
 
   // Input Handlers
   const handleCredentialsInputOnChange = (event) => { setCredentials(event.target.value) }
@@ -95,7 +113,7 @@ export default function UserLogin () {
   return (
     <>
       <Dialog isOpen={dialog}>
-        <PhoneLoginDialog />
+        <PhoneLoginDialog handlePhoneLoginUserSelection={handlePhoneLoginUserSelection} users={users} />
       </Dialog>
 
       <div className="flex-grow flex m-10 justify-center items-center">
