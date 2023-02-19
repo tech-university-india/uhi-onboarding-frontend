@@ -2,13 +2,22 @@ import React, { createContext, useContext, useState } from "react";
 export const SnackbarContext = createContext();
 export default function Snackbar({ children }) {
   const [enabled, setEnabled] = useState(false);
+
+  const snackmessages = {
+    login: "Login Successfully",
+    logout: "Logout Successfully",
+    error: "Something Error has Occured",
+    info: "Your details has been updated",
+    warning: "Please select a valid option",
+  }
+
   return (
     <SnackbarContext.Provider value={{ setEnabled }}>
       {children}
-      <div className={enabled ? "" : "hidden"}>
+      <div className={enabled ? "relative" : "hidden"}>
         {/* SHREYAS MAKE CODE FOR SNACKBAR HERE */}
-
-        <div class="mx-2 mb-8 sm:mx-auto max-w-sm h-14 flex flex-row items-center justify-between bg-green-200 p-3 text-sm leading-none font-medium rounded-xl whitespace-no-wrap">
+        
+        <div class=" sm:mx-auto max-w-sm h-14 w-72 flex flex-row items-center justify-between bg-green-200 p-3 text-sm leading-none font-medium rounded-xl whitespace-no-wrap absolute bottom-0 left-0">
           <div class="inline-flex items-center text-green-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +31,7 @@ export default function Snackbar({ children }) {
                 clip-rule="evenodd"
               />
             </svg>
-            Login Successfully
+            {snackmessages.login}
           </div>
           <button
             onClick={() => setEnabled(true)}
