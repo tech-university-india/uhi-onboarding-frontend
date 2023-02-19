@@ -15,8 +15,6 @@ export default function Snackbar ({ children }) {
     <SnackbarContext.Provider value={{ setEnabled }}>
       {children}
       <div className={enabled ? 'relative' : 'hidden'}>
-        {/* SHREYAS MAKE CODE FOR SNACKBAR HERE */}
-
         <div className="sm:mx-auto max-w-sm h-14 w-72 flex flex-row items-center justify-between bg-green-200 p-3 text-sm leading-none font-medium rounded-xl whitespace-no-wrap absolute bottom-0 left-0">
           <div className="inline-flex items-center text-green-500">
             <svg
