@@ -27,7 +27,7 @@ export default function Snackbar ({ children }) {
 
   return (
     <SnackbarContext.Provider value={{ showSnackbar }}>
-      <div className={classNames(`${enabled ? ' ' : 'hidden'}`,
+      {enabled && <div className={classNames(
         'sm:mx-auto max-w-sm h-14 w-72 flex flex-row items-center justify-between',
         'p-3 text-sm leading-none font-medium rounded-xl whitespace-no-wrap absolute top-0 left-0',
         {
@@ -71,7 +71,7 @@ export default function Snackbar ({ children }) {
             />
           </svg>
         </button>
-      </div>
+      </div>}
       {children}
     </SnackbarContext.Provider>
   )
