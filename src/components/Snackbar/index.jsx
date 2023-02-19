@@ -5,7 +5,7 @@ export const SnackbarContext = createContext({
 export default function Snackbar ({ children }) {
   const [enabled, setEnabled] = useState(false)
   const [content, setContent] = useState('')
-  const showSnackbar = (title, duration = 5000) => {
+  const showSnackbar = ({ title, type, duration = 5000 }) => {
     setEnabled(true)
     setContent(title)
     setTimeout(() => {
@@ -33,7 +33,7 @@ export default function Snackbar ({ children }) {
             {content}
           </div>
           <button
-            onClick={() => setEnabled(true)}
+            onClick={() => setEnabled(false)}
             className="text-green-700 cursor-pointer hover:text-green-800"
           >
             <svg
