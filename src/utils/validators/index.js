@@ -1,9 +1,10 @@
+import { PHONE_REGEX, ABHA_REGEX } from '../../../constants'
+
 export const validateAbhaNumber = (abhaNumber) => {
   const number = abhaNumber.trim().replace('-', '')
   // Regex for ABHA Number validation
-  const regex = /^[0-9]{14}$/
-  console.log(RegExp(regex).test(number))
-  if (regex.test(number)) {
+
+  if ((RegExp(ABHA_REGEX).test(number))) {
     return number
   }
   throw new Error('Invalid ABHA Number')
@@ -12,8 +13,7 @@ export const validateAbhaNumber = (abhaNumber) => {
 export const validatePhoneNumber = (phoneNumber) => {
   const number = phoneNumber.trim()
   // Regex for Phone Number validation
-  const regex = /^[0-9]{10}$/
-  if (RegExp(regex).test(number)) {
+  if (RegExp(PHONE_REGEX).test(number)) {
     return number
   }
   throw new Error('Invalid Phone Number')
