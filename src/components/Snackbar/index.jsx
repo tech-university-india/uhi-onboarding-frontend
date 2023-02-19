@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 export const SnackbarContext = createContext({
-  showSnackbar: (title, duration) => undefined
+  showSnackbar: ({ title, type, duration = 5000 }) => undefined
 })
 export default function Snackbar ({ children }) {
   const [enabled, setEnabled] = useState(false)
