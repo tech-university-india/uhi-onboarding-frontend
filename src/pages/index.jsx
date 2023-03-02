@@ -9,9 +9,7 @@ import UHIImage from '@/assets/uhi_diagram.png'
 export default function Home () {
   return (
     <>
-      <div>
-        <Info info= {screenText.about.general.info} imagePath={UHIImage} />
-      </div>
+     <h1>Hello World</h1>
     </>
   )
 };
