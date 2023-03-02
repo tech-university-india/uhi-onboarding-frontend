@@ -1,15 +1,14 @@
+import CustomButton from '@/components/CustomButton'
 import React from 'react'
-
-import Info from '@/components/Info'
-import screenText from 'screenText'
-import UHIImage from '@/assets/uhi_diagram.png'
 
 // const inter = Inter({ subsets: ['latin'] })
 
 export default function Home () {
   return (
     <>
-     <h1>Hello World</h1>
+      <h1 className="m-10 flex gap-5" ><CustomButton>HELLO</CustomButton>
+        <CustomButton isSelected ={ true}>Deactivated</CustomButton>
+      </h1>
     </>
   )
 };
