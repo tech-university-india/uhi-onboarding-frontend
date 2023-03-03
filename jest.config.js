@@ -1,5 +1,4 @@
 const nextJest = require('next/jest')
-const path = require('path')
 const createJestConfig = nextJest({
   dir: './'
   //   moduleDirectories: ['node_modules', path.resolve(__dirname, 'src')],
