@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react'
 import Alert from '..'
 import { fireEvent, render } from '@testing-library/react'
