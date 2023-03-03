@@ -5,6 +5,10 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      color: {
+        primary: '#B6EBB7',
+        secondary: '#008080'
+      },
       backgroundColor: {
         primary: '#B6EBB7',
         secondary: '#008080',
