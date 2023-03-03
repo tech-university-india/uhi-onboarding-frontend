@@ -1,14 +1,27 @@
+/* eslint-disable no-undef */
 import React from 'react'
 import CustomButton from '..'
-const { render } = require('react-dom')
+import { fireEvent, render } from '@testing-library/react'
 describe('Tests for Custom Button', () => {
+  it('should render the button', () => {})
+  const { container } = render(<CustomButton>Hello</CustomButton>)
+  expect(container).toMatchSnapshot()
   it('should render the button with text', () => {
-    const { container, getByText } = React.createRoot(<CustomButton>Hello</CustomButton>)
-    expect(container).toMatchSnapshot()
-    expect(getByText('Hello')).toByTruthy()
+    const { getByText } = render(<CustomButton>Hello</CustomButton>)
+    expect(getByText('Hello')).toBeTruthy()
   })
   it('should show inner shadow when the button is selected', () => {
-    const { getByText } = render(<CustomButton isSelected>Hello</CustomButton>)
-    getByText('Hello').toHaveClass('shadow-inner')
+    const screen = render(<CustomButton isSelected>Hello</CustomButton>)
+    expect(screen.getByText('Hello').className).toContain('shadow-inner')
+  })
+  it('should show outer shadow when the button is not selected', () => {
+    const screen = render(<CustomButton>Hello</CustomButton>)
+    expect(screen.getByText('Hello').className).toContain('shadow-xl')
+  })
+  it('should call the onClick function when the button is clicked', () => {
+    const onClick = jest.fn()
+    const screen = render(<CustomButton onClick={onClick}>Hello</CustomButton>)
+    fireEvent.click(screen.getByText('Hello'))
+    expect(onClick).toHaveBeenCalled()
   })
 })

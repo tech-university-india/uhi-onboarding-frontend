@@ -1,23 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ButtonColors } from '@/common/constants'
 import classNames from 'classnames'
 
 export default function CustomButton ({
   onClick,
   children,
-  color = ButtonColors.green,
+  className = 'bg-purple-500 text-white',
   isSelected = false
 }) {
   return (
     <button
       onClick={onClick}
-      style={{
-        backgroundColor: color
-      }}
+
       className={classNames(
-        isSelected ? 'shadow-inner' : 'shadow-xl',
-        'px-6 py-3 rounded-xl text-base font-medium '
+        className,
+        !isSelected ? 'shadow-inner' : 'shadow-xl',
+        'px-8 py-3 rounded-xl text-base font-medium '
       )}
     >
       {children}
@@ -27,7 +25,7 @@ export default function CustomButton ({
 
 CustomButton.propTypes = {
   children: PropTypes.node.isRequired,
-  color: PropTypes.oneOf(Object.values(ButtonColors)),
+  className: PropTypes.string,
   isSelected: PropTypes.bool,
   onClick: PropTypes.func
 }
