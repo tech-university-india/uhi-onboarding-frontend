@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [
+  content: [
 
-		'./src/**/*.{js,ts,jsx,tsx}',
-	],
-	theme: {
-		extend: {
-			colors: {
-				'uhigreen': '#D5F8C8;',
-				'uhipurple': '#d3c8f8',
-				'uhigreen-secondary': '#BCE974'
-			},
-			fontFamily: {
-				'sans': ['Poppins', 'sans-serif'],
-			}
-		},
-	},
-	plugins: [],
-};
+    './src/**/*.{js,ts,jsx,tsx}'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        uhigreen: '#D5F8C8;',
+        uhipurple: '#d3c8f8',
+        'uhigreen-secondary': '#BCE974'
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif']
+      }
+    }
+  },
+  plugins: []
+}
