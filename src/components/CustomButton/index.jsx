@@ -12,13 +12,13 @@ export default function CustomButton ({
   return (
     <button
       onClick={onClick}
-      className={classNames(
-        !isSelected ? 'shadow-lg' : 'shadow-inner',
-        'px-6 py-3 rounded-lg text-base font-medium border-r-2'
-      )}
       style={{
         backgroundColor: color
       }}
+      className={classNames(
+        isSelected ? 'shadow-inner' : 'shadow-xl',
+        'px-6 py-3 rounded-xl text-base font-medium '
+      )}
     >
       {children}
     </button>

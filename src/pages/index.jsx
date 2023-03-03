@@ -1,14 +1,16 @@
 import CustomButton from '@/components/CustomButton'
 import React from 'react'
-
-// const inter = Inter({ subsets: ['latin'] })
+import { ButtonColors } from '@/common/constants'
 
 export default function Home () {
   return (
-    <>
-      <h1 className="m-10 flex gap-5" ><CustomButton>HELLO</CustomButton>
-        <CustomButton isSelected ={ true}>Deactivated</CustomButton>
-      </h1>
-    </>
+    <div className="flex w-screen h-screen gap-6 justify-center items-center" >
+      <CustomButton color={ButtonColors.red} isSelected={true}>Hello</CustomButton>
+      <CustomButton color={ButtonColors.green}>Hello</CustomButton>
+      <CustomButton color={ButtonColors.purple}>Hello</CustomButton>
+      <CustomButton color={ButtonColors.brown} isSelected={true} >Hello</CustomButton>
+      <CustomButton color={ButtonColors.orange}>Hello</CustomButton>
+
+    </div>
   )
-};
+}
