@@ -48,7 +48,7 @@ module.exports = {
           fontSize: '16px',
           lineHeight: '22px'
         },
-        '.th-small': {
+        '.th-small-text': {
           fontFamily: 'Avenir',
           fontStyle: 'normal',
           fontWeight: 400,
