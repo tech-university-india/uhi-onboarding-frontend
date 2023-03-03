@@ -41,7 +41,7 @@ module.exports = {
           fontSize: '28px',
           lineHeight: '44px'
         },
-        '.th-p': {
+        '.th-body-text': {
           fontFamily: 'Avenir',
           fontStyle: 'normal',
           fontWeight: 400,
