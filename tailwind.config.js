@@ -5,6 +5,9 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      boxShadow: {
+        selected: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
       color: {
         primary: '#B6EBB7',
         secondary: '#008080'
