@@ -20,6 +20,9 @@ const Otp = () => {
   };
 
   const handleKeyDown = (e, index) => {
+    if (['-', '+', 'e', '.'].includes(e.key)) {
+      e.preventDefault();
+    }
     currentOtpIndex = index;
     if (e.key === 'Backspace') {
       setActiveOtpIndex(currentOtpIndex - 1);
