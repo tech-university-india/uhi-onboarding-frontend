@@ -1,11 +1,13 @@
-import React from 'react'
+import Otp from '@/components/Otp';
+import React from 'react';
 
 // const inter = Inter({ subsets: ['latin'] })
 
-export default function Home () {
+export default function Home() {
   return (
     <>
-      <p className="th-h1" >Hello World</p>
+      {/* <p className="th-h1">Hello World</p> */}
+      <Otp />
     </>
-  )
-};
+  );
+}
