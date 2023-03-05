@@ -39,6 +39,8 @@ const Otp = () => {
           <React.Fragment key={index}>
             <input
               ref={activeOtpIndex === index ? inputRef : null}
+              role="textbox"
+              data-testid={`OTP digit ${index}`}
               type="number"
               className="w-12 h-14 border-2 rounded bg-transparent outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition"
               onChange={(e) => handleOnChange(e, index)}
