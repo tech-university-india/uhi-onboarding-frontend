@@ -1,0 +1,16 @@
+.input-box { 
+  position: relative; 
+}
+
+.partial-input { 
+  padding-right: 6.25rem; 
+  text-align: right;
+}
+
+.fixed-text { 
+  position: absolute; 
+  display: block; 
+  right: 0.75rem; 
+  top: 0.75rem; 
+  z-index: 9; 
+}
