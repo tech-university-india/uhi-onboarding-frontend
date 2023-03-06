@@ -1,4 +1,3 @@
-import Otp from '@/components/Otp';
 import React from 'react';
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -6,8 +5,7 @@ import React from 'react';
 export default function Home() {
   return (
     <>
-      {/* <p className="th-h1">Hello World</p> */}
-      <Otp />
+      <p className="th-h1">Hello World</p>
     </>
   );
 }

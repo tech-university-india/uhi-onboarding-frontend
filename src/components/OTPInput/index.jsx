@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 let currentOtpIndex = 0;
-const Otp = () => {
+const OTPInput = () => {
   const [otp, setOtp] = useState(new Array(6).fill(''));
   const [activeOtpIndex, setActiveOtpIndex] = useState(0);
   const inputRef = useRef();
@@ -20,7 +20,7 @@ const Otp = () => {
   };
 
   const handleKeyDown = (e, index) => {
-    if (['-', '+', 'e', '.'].includes(e.key)) {
+    if (['-', '+', 'e', '.', 'E'].includes(e.key)) {
       e.preventDefault();
     }
     currentOtpIndex = index;
@@ -28,12 +28,13 @@ const Otp = () => {
       setActiveOtpIndex(currentOtpIndex - 1);
     }
   };
+  
 
   useEffect(() => {
     inputRef.current?.focus();
   }, [activeOtpIndex]);
   return (
-    <div className="h-screen flex justify-center items-center space-x-3">
+    <div className="flex justify-center items-center space-x-3">
       {otp.map((_, index) => {
         return (
           <React.Fragment key={index}>
@@ -55,4 +56,4 @@ const Otp = () => {
   );
 };
 
-export default Otp;
+export default OTPInput;
