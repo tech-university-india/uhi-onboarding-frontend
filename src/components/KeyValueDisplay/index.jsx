@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import editSvg from '../../../public/edit.svg'
 
 export default function KeyValueDisplay ({ keyText, valueText, onEditClick }) {
-  return <div className="p-4 flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay">
+  return <div className="p-4 w-full flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay">
     <span className="drop-shadow-none">{keyText}</span>
     <div className="flex flex-row justify-end items-center">
       <span className="drop-shadow-none">{valueText}</span>
