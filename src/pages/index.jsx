@@ -1,3 +1,5 @@
+import Header from '@/components/Header'
+import KeyValueDisplay from '@/components/KeyValueDisplay'
 import React from 'react'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -5,7 +7,9 @@ import React from 'react'
 export default function Home () {
   return (
     <>
-      <h1>Hello World</h1>
+      <Header text={'Ayush'} />
+      <div className="mt-3" />
+      <KeyValueDisplay keyText={'Key'} valueText={'Value'} onEditClick={() => {}} />
     </>
   )
 };

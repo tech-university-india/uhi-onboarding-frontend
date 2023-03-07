@@ -20,7 +20,12 @@ module.exports = {
         deactivate: '#FBA997',
         delete: '#FF6464'
       },
-
+      boxShadow: {
+        header: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
+      dropShadow: {
+        keyValueDisplay: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
       colors: {
       },
       fontFamily: {
