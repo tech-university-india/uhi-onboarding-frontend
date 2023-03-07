@@ -15,13 +15,13 @@ describe('KeyValueDisplay', () => {
   })
 
   it('should render the component with onEditClick callback props', () => {
-    const dummyPropsWithoutOnEditClick = {
+    const dummyPropsWithOnEditClick = {
       keyText: 'Key',
       valueText: 'Value',
       onEditClick: () => {}
     }
 
-    const keyValueComponent = render(<KeyValueDisplay {...dummyPropsWithoutOnEditClick} />).asFragment()
+    const keyValueComponent = render(<KeyValueDisplay {...dummyPropsWithOnEditClick} />).asFragment()
     expect(keyValueComponent).toMatchSnapshot()
   })
 })
