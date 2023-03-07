@@ -4,6 +4,11 @@ import PropTypes from 'prop-types'
 
 import editSvg from '../../../public/edit.svg'
 
+/**
+ * Key-value display component.
+ * Pass an onEditClick callback function as props to render the edit button.
+ * If the onEditClick callback function is not passed as props, the edit button is not rendered.
+ */
 export default function KeyValueDisplay ({ keyText, valueText, onEditClick }) {
   return <div className="p-4 w-full flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay">
     <span className="drop-shadow-none">{keyText}</span>
