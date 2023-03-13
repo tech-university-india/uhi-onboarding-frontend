@@ -11,7 +11,8 @@ Screen Text Example:
 
 const screenText = {
   patientScreen: {
-    header: 'Ayush'
+    header: 'Ayush',
+    textFields: ['ABHA #:', 'HealthId:', 'Mobile:', 'Email:']
   }
 }
 
