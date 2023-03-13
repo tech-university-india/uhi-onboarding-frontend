@@ -5,7 +5,10 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      color: {
+      boxShadow: {
+        selected: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
+      colors: {
         primary: '#B6EBB7',
         secondary: '#008080'
       },
@@ -21,8 +24,6 @@ module.exports = {
         delete: '#FF6464'
       },
 
-      colors: {
-      },
       fontFamily: {
         sans: ['Avenir', 'sans-serif']
       }
