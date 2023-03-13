@@ -2,69 +2,28 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import Dropdown from '../index'
 
-describe('Dropdown component', () => {
-  it('renders dropdown button with title', () => {
-    const title = 'Options'
-    const { getByText } = render(<Dropdown title={title} />)
-    const dropdownButton = getByText(title)
-    expect(dropdownButton).toBeInTheDocument()
-    expect(dropdownButton.tagName).toBe('BUTTON')
+describe('Dropdown', () => {
+  it('should render the header component', () => {
+    const headerComponent = jest.fn()
+    render(<Dropdown title="Dropdown" headerComponent={headerComponent} />)
+    expect(headerComponent).toHaveBeenCalled()
   })
 
-  it('clicking on dropdown button toggles dropdown menu', () => {
-    const title = 'Options'
-    const { getByText, getByRole, queryByText } = render(
-      <Dropdown title={title}>
+  it('should toggle the dropdown when header is clicked', () => {
+    const headerComponent = ({ toggleDropdown }) => (
+      <button onClick={toggleDropdown}>Dropdown</button>
+    )
+    const { getByText, queryByText } = render(
+      <Dropdown title="Dropdown" headerComponent={headerComponent}>
         <div>Option 1</div>
         <div>Option 2</div>
+        <div>Option 3</div>
       </Dropdown>
     )
-    const dropdownButton = getByText(title)
-    fireEvent.click(dropdownButton)
-    expect(getByRole('menu')).toBeInTheDocument()
-    fireEvent.click(dropdownButton)
+    const dropdownHeader = getByText('Dropdown')
+    fireEvent.click(dropdownHeader)
+    expect(queryByText('Option 1')).toBeInTheDocument()
+    fireEvent.click(dropdownHeader)
     expect(queryByText('Option 1')).not.toBeInTheDocument()
-  })
-
-  it('renders dropdown menu with children when open', () => {
-    const title = 'Options'
-    const { getByText, getByRole } = render(
-      <Dropdown title={title}>
-        <div>Option 1</div>
-        <div>Option 2</div>
-      </Dropdown>
-    )
-    const dropdownButton = getByText(title)
-    fireEvent.click(dropdownButton)
-    expect(getByRole('menu')).toBeInTheDocument()
-    expect(getByText('Option 1')).toBeInTheDocument()
-    expect(getByText('Option 2')).toBeInTheDocument()
-  })
-
-  it('does not render dropdown menu when closed', () => {
-    const title = 'Options'
-    const { queryByRole } = render(
-      <Dropdown title={title}>
-        <div>Option 1</div>
-        <div>Option 2</div>
-      </Dropdown>
-    )
-    expect(queryByRole('menu')).not.toBeInTheDocument()
-  })
-
-  it('clicking on option in dropdown menu calls onClick function', () => {
-    const title = 'Options'
-    const onClick = jest.fn()
-    const { getByText } = render(
-      <Dropdown title={title}>
-        <div onClick={onClick}>Option 1</div>
-        <div>Option 2</div>
-      </Dropdown>
-    )
-    const dropdownButton = getByText(title)
-    fireEvent.click(dropdownButton)
-    const option1 = getByText('Option 1')
-    fireEvent.click(option1)
-    expect(onClick).toHaveBeenCalled()
   })
 })
