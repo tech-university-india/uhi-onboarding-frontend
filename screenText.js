@@ -12,7 +12,17 @@ Screen Text Example:
 const screenText = {
   patientScreen: {
     header: 'Ayush',
-    textFields: ['ABHA #:', 'HealthId:', 'Mobile:', 'Email:']
+    textFields: ['ABHA #:', 'HealthId:', 'Mobile:', 'Email:'],
+    dropdown: [
+      {
+        title: 'Personal Details',
+        fields: ['Name:', 'Gender:', 'Date Of Birth:']
+      },
+      {
+        title: 'Address',
+        fields: ['Street:', 'Area:', 'Pin Code:']
+      }
+    ]
   }
 }
 
