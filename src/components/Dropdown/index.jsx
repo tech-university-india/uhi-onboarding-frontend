@@ -10,9 +10,9 @@ function Dropdown ({ title, children }) {
   }
 
   return (
-    <div className="relative flex justify-center mb-4">
+    <div className="flex flex-col items-center w-full px-10 justify-center mb-4">
       <button
-        className="bg-options text-black px-4 rounded w-5/6 h-12 flex justify-between items-center"
+        className="bg-options text-black px-4 rounded w-full h-12 flex justify-between items-center"
         onClick={toggleDropdown}
       >
         {title}
@@ -27,10 +27,7 @@ function Dropdown ({ title, children }) {
       </button>
 
       {isOpen && (
-        <div
-          className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white w-5/6 mb-4 mt-2"
-          style={{ zIndex: 10 }}
-        >
+        <div className="bg-white w-full mb-4 mt-2" role="menu">
           <div className="flex flex-col justify-center w-full">
             {React.Children.map(children, (child, index) => (
               <div
