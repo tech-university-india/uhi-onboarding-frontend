@@ -7,12 +7,14 @@ module.exports = {
     extend: {
       boxShadow: {
         selected: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        header: '0px 4px 4px rgba(0, 0, 0, 0.25)'
-
+        header: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        textBox: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        textBoxInset: 'inset 0 4px 4px rgba(0, 0, 0, 0.25)'
       },
       colors: {
         primary: '#B6EBB7',
-        secondary: '#008080'
+        secondary: '#008080',
+        preFillText: '#4D4242'
       },
       backgroundColor: {
         primary: '#B6EBB7',

@@ -3,7 +3,7 @@
 exports[`KeyValueDisplay should render the component with onEditClick callback props 1`] = `
 <DocumentFragment>
   <div
-    class="p-4 flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay"
+    class="p-4 w-full flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay"
   >
     <span
       class="drop-shadow-none"
@@ -41,7 +41,7 @@ exports[`KeyValueDisplay should render the component with onEditClick callback p
 exports[`KeyValueDisplay should render the component without onEditClick callback props 1`] = `
 <DocumentFragment>
   <div
-    class="p-4 flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay"
+    class="p-4 w-full flex flex-row border-opacity-5 justify-between items-center border border-gray-100 bg-white drop-shadow-keyValueDisplay"
   >
     <span
       class="drop-shadow-none"
