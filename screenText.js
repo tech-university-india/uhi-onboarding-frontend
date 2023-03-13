@@ -9,6 +9,10 @@ Screen Text Example:
 }
 */
 
-const screenText = {}
+const screenText = {
+  patientScreen: {
+    header: 'Ayush'
+  }
+}
 
 export default screenText
