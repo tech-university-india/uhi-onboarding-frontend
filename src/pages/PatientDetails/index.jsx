@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, KeyValueDisplay, Dropdown } from '@/components'
+import { Header, KeyValueDisplay, Dropdown, SectionTitleDisplay } from '@/components'
 import screenText from 'screenText'
 import optionsIcon from '@/assets/options.png'
 import settingsIcon from '@/assets/settings.png'
@@ -33,12 +33,27 @@ export default function PatientDetails () {
             <KeyValueDisplay keyText={screenText.patientScreen.textFields[3]} valueText="email@domain.com" />
           </div>
           <div className="my-4">
-            <Dropdown title={screenText.patientScreen.dropdown[0].title} className="">
+            <Dropdown headerComponent={({ toggleDropdown, isOpen }) => {
+              return (
+                <SectionTitleDisplay
+                  text={screenText.patientScreen.dropdown[0].title}
+                  onExpandClick={toggleDropdown}
+                  expanded={isOpen}
+                />
+              )
+            }} className="">
               <KeyValueDisplay keyText={screenText.patientScreen.dropdown[0].fields[0]} valueText="First M Last" />
               <KeyValueDisplay keyText={screenText.patientScreen.dropdown[0].fields[1]} valueText="Gender" />
               <KeyValueDisplay keyText={screenText.patientScreen.dropdown[0].fields[2]} valueText=" dd/mm/yyyy" />
             </Dropdown>
-            <Dropdown title={screenText.patientScreen.dropdown[1].title} className="">
+
+            <Dropdown headerComponent={({ toggleDropdown, isOpen }) => (
+              <SectionTitleDisplay
+                text={screenText.patientScreen.dropdown[1].title}
+                onExpandClick={toggleDropdown}
+                expanded={isOpen}
+              />
+            )} className="px-0">
               <KeyValueDisplay keyText={screenText.patientScreen.dropdown[1].fields[0]} valueText="Street details" />
               <KeyValueDisplay keyText={screenText.patientScreen.dropdown[1].fields[1]} valueText="Town, District, City" />
               <KeyValueDisplay keyText={screenText.patientScreen.dropdown[1].fields[2]} valueText="XXXXXX" />
