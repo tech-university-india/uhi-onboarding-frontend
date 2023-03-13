@@ -1,4 +1,3 @@
-
 import React from 'react'
 // const inter = Inter({ subsets: ['latin'] })
 import MyApp from './_app'
