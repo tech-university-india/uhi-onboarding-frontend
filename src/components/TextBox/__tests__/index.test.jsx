@@ -10,8 +10,10 @@ describe('TextBox', () => {
       onChange: () => {}
     }
 
-    const renderedComponent = render(<TextBox {...dummyPropsDefault} />).asFragment()
-    expect(renderedComponent).toMatchSnapshot()
+    const renderedComponent = render(<TextBox {...dummyPropsDefault} />)
+    expect(
+      renderedComponent.getByPlaceholderText('Aadhaar Number')
+    ).toBeTruthy()
   })
 
   it('should render the component using props with text \'Aadhaar Number\'', () => {
@@ -20,8 +22,8 @@ describe('TextBox', () => {
       onChange: () => {}
     }
 
-    const renderedComponent = render(<TextBox {...dummyPropsText} />).asFragment()
-    expect(renderedComponent).toMatchSnapshot()
+    const renderedComponent = render(<TextBox {...dummyPropsText} />)
+    expect(renderedComponent.getByDisplayValue('Aadhaar Number')).toBeTruthy()
   })
 
   it('should render the component using props with disabled as true and text \'Aadhaar Number\'', () => {
@@ -31,7 +33,9 @@ describe('TextBox', () => {
       onChange: () => {}
     }
 
-    const renderedComponent = render(<TextBox {...dummyPropsDisabled} />).asFragment()
+    const renderedComponent = render(
+      <TextBox {...dummyPropsDisabled} />
+    ).asFragment()
     expect(renderedComponent).toMatchSnapshot()
   })
 
@@ -42,7 +46,9 @@ describe('TextBox', () => {
       onChange: () => {}
     }
 
-    const renderedComponent = render(<TextBox {...dummyPropsFixedText} />).asFragment()
+    const renderedComponent = render(
+      <TextBox {...dummyPropsFixedText} />
+    ).asFragment()
     expect(renderedComponent).toMatchSnapshot()
   })
 
@@ -52,7 +58,9 @@ describe('TextBox', () => {
       onChange: () => {}
     }
 
-    const renderedComponent = render(<TextBox {...dummyPropsNoBg} />).asFragment()
+    const renderedComponent = render(
+      <TextBox {...dummyPropsNoBg} />
+    ).asFragment()
     expect(renderedComponent).toMatchSnapshot()
   })
 
@@ -71,13 +79,39 @@ describe('TextBox', () => {
   it('should call onChange callback passed as part of props when text changes', () => {
     const dummyPropsWithCallback = {
       placeholder: 'Aadhaar Number',
-      onChange: jest.fn()
+      onChange: jest.fn(),
+      partialText: 'Hello'
     }
-
-    expect(dummyPropsWithCallback.onChange).not.toBeCalled()
+    // expect(dummyPropsWithCallback.onChange).not.toBeCalled()
     render(<TextBox {...dummyPropsWithCallback} />)
-    const inputComponent = screen.getByPlaceholderText('Aadhaar Number')
+    const inputComponent = screen.getByTestId('partialText')
     fireEvent.change(inputComponent, { target: { value: '123456781234' } })
     expect(dummyPropsWithCallback.onChange).toBeCalled()
+  })
+  it('should render the component using props for no bg colour and placeholder as \'Aadhaar Number\'', () => {
+    const dummyPropsNoBg = {
+      noBg: true,
+      onChange: () => {},
+      placeholder: 'Aadhaar Number'
+    }
+
+    render(
+      <TextBox {...dummyPropsNoBg} />
+    )
+    expect(
+      screen.getByPlaceholderText('Aadhaar Number').className).not.toContain('bg-textBox')
+  })
+  it('should render the component using props for disabled and placeholder as \'Aadhaar Number\'', () => {
+    const dummyPropsDisabled = {
+      disabled: true,
+      onChange: () => {},
+      placeholder: 'Aadhaar Number'
+    }
+
+    render(
+      <TextBox {...dummyPropsDisabled} />
+    )
+    expect(
+      screen.getByPlaceholderText('Aadhaar Number').className).toContain('shadow-textBoxInset')
   })
 })

@@ -1,30 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextBox should render the component using default props with placeholder 'Aadhaar Number' 1`] = `
-<DocumentFragment>
-  <input
-    class="disabled:text-preFillText p-3 w-full rounded-lg shadow-textBox bg-textBox"
-    placeholder="Aadhaar Number"
-    type="text"
-    value=""
-  />
-</DocumentFragment>
-`;
-
 exports[`TextBox should render the component using props for fixed text and placeholder as 'Health ID' 1`] = `
 <DocumentFragment>
   <div
-    class="input-box"
+    class="relative"
   >
     <input
-      class="disabled:text-preFillText p-3 w-full rounded-lg shadow-textBox bg-textBox partial-input"
+      class="disabled:text-preFillText p-3 w-full rounded-lg shadow-textBox bg-textBox text-right"
+      data-testid="partialText"
       placeholder="Health ID"
       style="padding-right: 6.25rem;"
       type="text"
       value=""
     />
     <span
-      class="fixed-text text-preFillText"
+      class="absolute block right-3 top-3 z-10 text-preFillText"
     >
       .ayush@sbx
     </span>
@@ -48,17 +38,6 @@ exports[`TextBox should render the component using props with disabled as true a
   <input
     class="disabled:text-preFillText p-3 w-full rounded-lg shadow-textBoxInset bg-textBox"
     disabled=""
-    placeholder=""
-    type="text"
-    value="Aadhaar Number"
-  />
-</DocumentFragment>
-`;
-
-exports[`TextBox should render the component using props with text 'Aadhaar Number' 1`] = `
-<DocumentFragment>
-  <input
-    class="disabled:text-preFillText p-3 w-full rounded-lg shadow-textBox bg-textBox"
     placeholder=""
     type="text"
     value="Aadhaar Number"

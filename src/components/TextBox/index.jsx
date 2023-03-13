@@ -16,7 +16,9 @@ function TextBox ({ onChange, placeholder, disabled, noBg, partialText, text }) 
     <>
       {partialText !== undefined
         ? <div className="relative">
-          <input type="text" disabled={disabled} className={`disabled:text-preFillText p-3 w-full rounded-lg ${disabled ? 'shadow-textBoxInset' : 'shadow-textBox'} ${noBg ? '' : 'bg-textBox'} text-right`}
+          <input type="text" disabled={disabled}
+            data-testid = "partialText"
+            className={`disabled:text-preFillText p-3 w-full rounded-lg ${disabled ? 'shadow-textBoxInset' : 'shadow-textBox'} ${noBg ? '' : 'bg-textBox'} text-right`}
             style={{
               paddingRight: PAD_PARTIAL_TEXT
             }}

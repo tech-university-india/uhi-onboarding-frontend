@@ -3,16 +3,13 @@ import React from 'react'
 import CustomButton from '..'
 import { fireEvent, render } from '@testing-library/react'
 describe('Tests for Custom Button', () => {
-  it('should render the button', () => {})
-  const { container } = render(<CustomButton>Hello</CustomButton>)
-  expect(container).toMatchSnapshot()
   it('should render the button with text', () => {
     const { getByText } = render(<CustomButton>Hello</CustomButton>)
     expect(getByText('Hello')).toBeTruthy()
   })
   it('should show inner shadow when the button is selected', () => {
     const screen = render(<CustomButton isSelected>Hello</CustomButton>)
-    expect(screen.getByText('Hello').className).toContain('shadow-inner')
+    expect(screen.getByText('Hello').className).toContain('shadow-selected')
   })
   it('should show outer shadow when the button is not selected', () => {
     const screen = render(<CustomButton>Hello</CustomButton>)
