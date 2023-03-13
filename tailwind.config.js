@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        selected: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+        selected: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        header: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+
       },
       colors: {
         primary: '#B6EBB7',
@@ -22,6 +24,9 @@ module.exports = {
         options: '#DAE1FB',
         deactivate: '#FBA997',
         delete: '#FF6464'
+      },
+      dropShadow: {
+        keyValueDisplay: '0px 4px 4px rgba(0, 0, 0, 0.25)'
       },
 
       fontFamily: {
