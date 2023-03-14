@@ -54,9 +54,9 @@ export default function PatientDetails () {
               <div className="flex flex-col bg-textBox p-6">
                 <div className="flex">
                   <TextBox label="First Name" onChange={onChangeMobileNumber} className="bg-white" />
-                  <CustomButton className="bg-submit ml-12" onClick={onSubmitMobileNumber}>
+                  {!editMobileNumber && !showUpdateMethods && <CustomButton className="bg-submit ml-12" onClick={onSubmitMobileNumber}>
                   Submit
-                  </CustomButton>
+                  </CustomButton>}
                 </div>
                 <div>
                   {editMobileNumber && <div className="flex mt-4">
