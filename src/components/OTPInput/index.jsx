@@ -1,24 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
 
 let currentOtpIndex = 0
-const OTPInput = () => {
+const OTPInput = ({ className = '' }) => {
   const [otp, setOtp] = useState(new Array(6).fill(''))
   const [activeOtpIndex, setActiveOtpIndex] = useState(0)
   const inputRef = useRef()
 
   const handleOnChange = (e) => {
     const value = e.target.value
-    const newOtp = [...otp]
-    newOtp[currentOtpIndex] = value.substring(value.length - 1)
+    otp[currentOtpIndex] = value.substring(value.length - 1)
     if (!value) {
       setActiveOtpIndex(currentOtpIndex - 1)
     } else {
       setActiveOtpIndex(currentOtpIndex + 1)
     }
 
-    setOtp(newOtp)
+    setOtp([...otp])
   }
-
   const handleKeyDown = (e, index) => {
     if (['-', '+', 'e', '.', 'E'].includes(e.key)) {
       e.preventDefault()
@@ -42,11 +41,16 @@ const OTPInput = () => {
               role="textbox"
               data-testid={`OTP digit ${index}`}
               type="number"
-              className="w-12 h-14 border-2 rounded bg-transparent outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition"
+              placeholder="-"
+              onPaste={(e) => e.preventDefault()}
+              className={classNames(className,
+                'w-6 h-7 drop-shadow-xl rounded  p-1 outline-none text-center font-semibold text-xl spin-button-none focus:border-outline border-2 text-gray-600 transition'
+
+              )}
               onChange={(e) => handleOnChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               value={otp[index]}
-              // value={otp[index] === '' ? '-' : otp[index]}
+
             />
           </React.Fragment>
         )

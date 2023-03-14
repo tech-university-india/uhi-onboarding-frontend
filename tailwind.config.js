@@ -14,7 +14,9 @@ module.exports = {
       colors: {
         primary: '#B6EBB7',
         secondary: '#008080',
-        preFillText: '#4D4242'
+        preFillText: '#4D4242',
+        outline: '#005FCC'
+
       },
       backgroundColor: {
         primary: '#B6EBB7',
