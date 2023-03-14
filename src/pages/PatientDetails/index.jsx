@@ -61,7 +61,7 @@ export default function PatientDetails () {
                   onEditClick={toggleDropdown}
                 />
               )
-            }} className="">
+            }} className="mb-0">
               <div className="flex flex-col bg-textBox p-6">
                 <div className="flex">
                   {!editMobileNumber && !showUpdateMethods && !showSelectUpdateMethod && <TextBox onChange={onChangeMobileNumber} placeholder="Enter new number" type="number" noBg />}

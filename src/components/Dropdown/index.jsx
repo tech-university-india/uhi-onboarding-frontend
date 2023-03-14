@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import classNames from 'classnames'
 
-function Dropdown ({ title, children, headerComponent }) {
+function Dropdown ({ children, headerComponent, className = '' }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleDropdown = () => {
@@ -8,7 +9,7 @@ function Dropdown ({ title, children, headerComponent }) {
   }
 
   return (
-    <div className="flex flex-col items-center w-full justify-center mb-4">
+    <div className={classNames(className, 'flex flex-col items-center w-full justify-center mb-4')}>
       <div onClick={toggleDropdown} className="w-full">
         {headerComponent({ toggleDropdown, isOpen })}
       </div>
