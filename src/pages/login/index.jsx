@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div className="Login ">
       <Header text={'Ayush'}/>
-      <div className="py-4 px-6 md:py-4 md:px-80 flex flex-col justify-center items-center  gap-3 mt-2">
+      <div className="py-4 px-6 lg:py-4 lg:px-80 flex flex-col justify-center items-center  gap-3 mt-2">
         <div className="input-field flex justify-between items-center gap-4 w-full">
           <TextBox placeholder={'ABHA Number'} onChange={(e) => {
             let inputString = e.target.value.replace(/-/g, '') // remove existing dashes
