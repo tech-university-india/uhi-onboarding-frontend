@@ -112,7 +112,7 @@ export default function PatientDetails () {
               )
             }} className="">
               <div className="flex bg-textBox p-6">
-                <TextBox label="First Name" onChange={onChangeEmail} className="bg-white" />
+                <TextBox label="First Name" onChange={onChangeEmail} placeholder="Enter new email" noBg />
                 <CustomButton className="bg-submit ml-12">
                   Submit
                 </CustomButton>
