@@ -1,38 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
 
-let currentOtpIndex = 0;
+let currentOtpIndex = 0
 const OTPInput = () => {
-  const [otp, setOtp] = useState(new Array(6).fill(''));
-  const [activeOtpIndex, setActiveOtpIndex] = useState(0);
-  const inputRef = useRef();
+  const [otp, setOtp] = useState(new Array(6).fill(''))
+  const [activeOtpIndex, setActiveOtpIndex] = useState(0)
+  const inputRef = useRef()
 
   const handleOnChange = (e) => {
-    const value = e.target.value;
-    const newOtp = [...otp];
-    newOtp[currentOtpIndex] = value.substring(value.length - 1);
+    const value = e.target.value
+    const newOtp = [...otp]
+    newOtp[currentOtpIndex] = value.substring(value.length - 1)
     if (!value) {
-      setActiveOtpIndex(currentOtpIndex - 1);
+      setActiveOtpIndex(currentOtpIndex - 1)
     } else {
-      setActiveOtpIndex(currentOtpIndex + 1);
+      setActiveOtpIndex(currentOtpIndex + 1)
     }
 
-    setOtp(newOtp);
-  };
+    setOtp(newOtp)
+  }
 
   const handleKeyDown = (e, index) => {
     if (['-', '+', 'e', '.', 'E'].includes(e.key)) {
-      e.preventDefault();
+      e.preventDefault()
     }
-    currentOtpIndex = index;
+    currentOtpIndex = index
     if (e.key === 'Backspace') {
-      setActiveOtpIndex(currentOtpIndex - 1);
+      setActiveOtpIndex(currentOtpIndex - 1)
     }
-  };
-  
+  }
 
   useEffect(() => {
-    inputRef.current?.focus();
-  }, [activeOtpIndex]);
+    inputRef.current?.focus()
+  }, [activeOtpIndex])
   return (
     <div className="flex justify-center items-center space-x-3">
       {otp.map((_, index) => {
@@ -50,10 +49,10 @@ const OTPInput = () => {
               // value={otp[index] === '' ? '-' : otp[index]}
             />
           </React.Fragment>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default OTPInput;
+export default OTPInput

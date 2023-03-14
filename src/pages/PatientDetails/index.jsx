@@ -37,7 +37,7 @@ export default function PatientDetails () {
               return (
                 <KeyValueDisplay
                   keyText={screenText.patientScreen.textFields[2]}
-                  valueText="First M Last"
+                  valueText="+919876554321"
                   onEditClick={toggleDropdown}
                 />
               )
@@ -54,7 +54,7 @@ export default function PatientDetails () {
             <Dropdown headerComponent={({ toggleDropdown }) => {
               return (
                 <KeyValueDisplay
-                  keyText={screenText.patientScreen.textFields[2]}
+                  keyText={screenText.patientScreen.textFields[3]}
                   valueText="email@domain.com"
                   onEditClick={toggleDropdown}
                 />
