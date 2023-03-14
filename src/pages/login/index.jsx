@@ -15,7 +15,7 @@ const Login = () => {
 
   const handleLogin = () => {
     // make api call to backend to check if ABHA number exists
-    const regex = /^\d{4}-\d{4}-\d{4}$/
+    const regex = /^\d{2}-\d{4}-\d{4}-\d{4}$/
     if (!regex.test(abha)) {
       alert('ABHA number is not valid')
       return
@@ -49,13 +49,27 @@ const Login = () => {
       <div className="py-4 px-6 lg:py-4 lg:px-80 flex flex-col justify-center items-center  gap-3 mt-2">
         <div className="input-field flex justify-between items-center gap-4 w-full">
           <TextBox placeholder={'ABHA Number'} onChange={(e) => {
-            let inputString = e.target.value.replace(/-/g, '') // remove existing dashes
+            let inputString = event.target.value.replace(/-/g, '') // remove existing dashes
             inputString = inputString.replace(/\D/g, '') // remove non-digits
-            inputString = inputString.slice(0, 12) // limit to 12 digits
-            const formattedString = inputString.replace(/(\d{4})(?=\d)/g, '$1-')
+            const formattedString = inputString.slice(0, 14).replace(/(\d{2})?(\d{4})?(\d{4})?(\d{4})?/, (match, p1, p2, p3, p4) => {
+              let result = ''
+              if (p1) {
+                result += p1 + '-'
+              }
+              if (p2) {
+                result += p2 + '-'
+              }
+              if (p3) {
+                result += p3 + '-'
+              }
+              if (p4) {
+                result += p4
+              }
+              return result
+            })
             setAbha(formattedString)
           }} text={abha}/>
-          <CustomButton className={'bg-submit'} onClick={handleLogin}>Login</CustomButton>
+          <CustomButton className={'bg-submit px-4'} onClick={handleLogin}>Login</CustomButton>
         </div>
 
         {
@@ -73,7 +87,7 @@ const Login = () => {
               showOtpInput
                 ? (
                   <div className="input-options flex justify-between items-center gap-4">
-                    <OTPInput/>
+                    <OTPInput className="w-7 h-7"/>
                     <CustomButton className={'bg-submit'}>Submit</CustomButton>
                   </div>
                 )

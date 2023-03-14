@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
 
 let currentOtpIndex = 0
-const OTPInput = () => {
+const OTPInput = ({ className = '' }) => {
   const [otp, setOtp] = useState(new Array(6).fill(''))
   const [activeOtpIndex, setActiveOtpIndex] = useState(0)
   const inputRef = useRef()
@@ -42,7 +43,11 @@ const OTPInput = () => {
               role="textbox"
               data-testid={`OTP digit ${index}`}
               type="number"
-              className="w-6 h-7 border-2 rounded bg-transparent p-1 outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition"
+              className={classNames(
+                className,
+                'w-6 h-7 border-2 rounded bg-transparent p-1 outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition'
+              )}
+              // className={`w-${width} h-${height} border-2 rounded bg-transparent p-1 outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition`}
               onChange={(e) => handleOnChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               value={otp[index]}
