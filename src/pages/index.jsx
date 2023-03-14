@@ -1,10 +1,11 @@
 import React from 'react'
+import Registration from './registration';
 // const inter = Inter({ subsets: ['latin'] })
 
 export default function Home () {
   return (
     <>
-      <p className="th-h1">Hello World</p>
+      <Registration/>
     </>
   )
 }
