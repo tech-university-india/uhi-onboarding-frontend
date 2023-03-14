@@ -1,11 +1,17 @@
 import React from 'react'
-import { Header, KeyValueDisplay, Dropdown, SectionTitleDisplay } from '@/components'
+import { Header, KeyValueDisplay, Dropdown, SectionTitleDisplay, TextBox, CustomButton } from '@/components'
 import screenText from 'screenText'
 import optionsIcon from '@/assets/options.png'
 import settingsIcon from '@/assets/settings.png'
 import Image from 'next/image'
 
 export default function PatientDetails () {
+  const onChangeMobileNumber = (event) => {
+    console.log(event.target.value)
+  }
+  const onChangeEmail = (event) => {
+    console.log(event.target.value)
+  }
   return (
     <>
       <div>
@@ -27,10 +33,40 @@ export default function PatientDetails () {
             <KeyValueDisplay keyText={screenText.patientScreen.textFields[1]} valueText="health_id.ayush@sbx" />
           </div>
           <div className="mb-1">
-            <KeyValueDisplay keyText={screenText.patientScreen.textFields[2]} valueText="+919876554321" />
+            <Dropdown headerComponent={({ toggleDropdown }) => {
+              return (
+                <KeyValueDisplay
+                  keyText={screenText.patientScreen.textFields[2]}
+                  valueText="First M Last"
+                  onEditClick={toggleDropdown}
+                />
+              )
+            }} className="">
+              <div className="flex bg-textBox p-6">
+                <TextBox label="First Name" onChange={onChangeMobileNumber} className="bg-white" />
+                <CustomButton className="bg-submit ml-12">
+                  Submit
+                </CustomButton>
+              </div>
+            </Dropdown>
           </div>
           <div className="mb-1">
-            <KeyValueDisplay keyText={screenText.patientScreen.textFields[3]} valueText="email@domain.com" />
+            <Dropdown headerComponent={({ toggleDropdown }) => {
+              return (
+                <KeyValueDisplay
+                  keyText={screenText.patientScreen.textFields[2]}
+                  valueText="email@domain.com"
+                  onEditClick={toggleDropdown}
+                />
+              )
+            }} className="">
+              <div className="flex bg-textBox p-6">
+                <TextBox label="First Name" onChange={onChangeEmail} className="bg-white" />
+                <CustomButton className="bg-submit ml-12">
+                  Submit
+                </CustomButton>
+              </div>
+            </Dropdown>
           </div>
           <div className="my-4">
             <Dropdown headerComponent={({ toggleDropdown, isOpen }) => {
