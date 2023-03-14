@@ -67,7 +67,7 @@ const Registration = () => {
           <>
             <TextBox placeholder="Aadhar Number" disabled={true}/>
             <div className="mt-10">
-              <OTPInput className="w-10 h-10"/>
+              <OTPInput className="w-11 h-11"/>
             </div>
             <CustomButton
               data-testid='handle-aadhar-otp'
