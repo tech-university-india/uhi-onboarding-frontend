@@ -7,6 +7,7 @@ import Image from 'next/image'
 
 export default function PatientDetails () {
   const [editMobileNumber, setEditMobileNumber] = React.useState(false)
+  const [showUpdateMethods, setShowUpdateMethods] = React.useState(false)
   const onChangeMobileNumber = (event) => {
     console.log(event.target.value)
   }
@@ -15,6 +16,10 @@ export default function PatientDetails () {
   }
   const onSubmitMobileNumber = () => {
     setEditMobileNumber(true)
+  }
+  const onSubmitOTP = () => {
+    setEditMobileNumber(false)
+    setShowUpdateMethods(true)
   }
   return (
     <>
@@ -54,12 +59,22 @@ export default function PatientDetails () {
                   </CustomButton>
                 </div>
                 <div>
-                  {editMobileNumber && <div className="flex">
-                    <div>
-                      <OTPInput />
-                    </div>
-                    <CustomButton className="bg-submit">
+                  {editMobileNumber && <div className="flex mt-4">
+                    <OTPInput />
+                    <CustomButton className="bg-submit" onClick={onSubmitOTP}>
                       Submit
+                    </CustomButton>
+                  </div>}
+                  {showUpdateMethods && <div className="flex mt-4">
+                    <div>Update via</div>
+                    <CustomButton className="bg-options text-black ml-4">
+                      Aadhaar
+                    </CustomButton>
+                    <CustomButton className="bg-options text-black ml-4">
+                      Mobile
+                    </CustomButton>
+                    <CustomButton className="bg-options text-black ml-4">
+                      Password
                     </CustomButton>
                   </div>}
                 </div>
