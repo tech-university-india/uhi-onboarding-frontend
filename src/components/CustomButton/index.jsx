@@ -14,8 +14,8 @@ export default function CustomButton ({
 
       className={classNames(
         className,
-        isSelected ? 'shadow-selected' : 'shadow-xl',
-        'px-8 py-3 rounded-xl text-base font-medium '
+        isSelected ? 'shadow-selected' : 'shadow-xl text-primaryButtonText',
+        'px-5 py-3 text-base font-light rounded-sm'
       )}
     >
       {children}
