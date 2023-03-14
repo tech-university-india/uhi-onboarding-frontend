@@ -10,8 +10,9 @@ export default function PatientDetails () {
   const [showUpdateMethods, setShowUpdateMethods] = React.useState(false)
   const [updateMethodPlaceholder, setUpdateMethodPlaceholder] = React.useState('')
   const [showSelectUpdateMethod, setShowSelectUpdateMethod] = React.useState(false)
+  const [mobileNumber, setMobileNumber] = React.useState('')
   const onChangeMobileNumber = (event) => {
-    console.log(event.target.value)
+    setMobileNumber(event.target.value)
   }
   const onChangeEmail = (event) => {
     console.log(event.target.value)
@@ -63,32 +64,35 @@ export default function PatientDetails () {
             }} className="">
               <div className="flex flex-col bg-textBox p-6">
                 <div className="flex">
-                  <TextBox onChange={onChangeMobileNumber} className="bg-white" placeholder="Enter new number" />
-                  {!editMobileNumber && !showUpdateMethods && !showSelectUpdateMethod && <CustomButton className="bg-submit ml-12" onClick={onSubmitMobileNumber}>
+                  {!editMobileNumber && !showUpdateMethods && !showSelectUpdateMethod && <TextBox onChange={onChangeMobileNumber} placeholder="Enter new number" type="number" noBg />}
+                  {(editMobileNumber || showUpdateMethods || showSelectUpdateMethod) && <TextBox onChange={onChangeMobileNumber} placeholder={mobileNumber} type="number" disabled />}
+                  {!editMobileNumber && !showUpdateMethods && !showSelectUpdateMethod && <CustomButton className="bg-submit ml-10" onClick={onSubmitMobileNumber}>
                   Submit
                   </CustomButton>}
                 </div>
                 <div>
                   {editMobileNumber && <div className="flex mt-4">
-                    <OTPInput />
-                    <CustomButton className="bg-submit" onClick={onSubmitOTP}>
+                    <OTPInput className="h-10 w-6" />
+                    <CustomButton className="bg-submit ml-6" onClick={onSubmitOTP}>
                       Submit
                     </CustomButton>
                   </div>}
                   {showUpdateMethods && <div className="flex mt-4">
-                    <div>Update via</div>
-                    <CustomButton className="bg-options text-black ml-4" onClick={() => onSubmitUpdateMethods('Aadhaar')}>
+                    <div className="pt-2">Update via</div>
+                    <CustomButton className="bg-options text-black ml-3 h-10 w-15 px-1 py-1" onClick={() => onSubmitUpdateMethods('Aadhaar')}>
                       Aadhaar
                     </CustomButton>
-                    <CustomButton className="bg-options text-black ml-4" onClick={() => onSubmitUpdateMethods('Mobile')}>
+                    <CustomButton className="bg-options text-black ml-3 h-10 w-15 px-1 py-1" onClick={() => onSubmitUpdateMethods('Mobile')}>
                       Mobile
                     </CustomButton>
-                    <CustomButton className="bg-options text-black ml-4" onClick={() => onSubmitUpdateMethods('Password')}>
+                    <CustomButton className="bg-options text-black ml-3 h-10 w-15 px-1 py-1" onClick={() => onSubmitUpdateMethods('Password')}>
                       Password
                     </CustomButton>
                   </div>}
                   {showSelectUpdateMethod && <div className="flex mt-4">
-                    <TextBox onChange={onChangeUpdateMethod} className="bg-white" placeholder={updateMethodPlaceholder} />
+                    <TextBox onChange={onChangeUpdateMethod} className="bg-white" placeholder={updateMethodPlaceholder} noBg
+                      type={updateMethodPlaceholder === 'Password' ? 'password' : 'number'}
+                    />
                     <CustomButton className="bg-submit ml-12">
                       Submit
                     </CustomButton>
