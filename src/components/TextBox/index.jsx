@@ -5,7 +5,6 @@ function TextBox ({ onChange, placeholder, disabled, noBg, partialText, text, ty
   // The following are used to calculate the padding required by the text being entered
   // into the textbox in the partialText mode so that the entered text does not overlap
   // onto the partialText.
-  console.log('type', type)
   const PAD_PARTIAL_TEXT_DOT = 0.625
   const PAD_PARTIAL_TEXT_NO_DOT = 0.68
   const PAD_PARTIAL_TEXT = `${partialText === undefined

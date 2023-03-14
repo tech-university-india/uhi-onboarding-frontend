@@ -41,15 +41,16 @@ const OTPInput = ({ className = '' }) => {
               role="textbox"
               data-testid={`OTP digit ${index}`}
               type="number"
-              className={classNames(
-                className,
-                'w-6 h-7 border-2 rounded bg-transparent p-1 outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition'
+              placeholder="-"
+              onPaste={(e) => e.preventDefault()}
+              className={classNames(className,
+                'w-6 h-7 drop-shadow-xl rounded  p-1 outline-none text-center font-semibold text-xl spin-button-none focus:border-outline border-2 text-gray-600 transition'
+
               )}
-              // className={`w-${width} h-${height} border-2 rounded bg-transparent p-1 outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition`}
               onChange={(e) => handleOnChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               value={otp[index]}
-              // value={otp[index] === '' ? '-' : otp[index]}
+
             />
           </React.Fragment>
         )

@@ -49,7 +49,7 @@ const Login = () => {
       <div className="py-4 px-6 lg:py-4 lg:px-80 flex flex-col justify-center items-center  gap-3 mt-2">
         <div className="input-field flex justify-between items-center gap-4 w-full">
           <TextBox placeholder={'ABHA Number'} onChange={(e) => {
-            let inputString = event.target.value.replace(/-/g, '') // remove existing dashes
+            let inputString = e.target.value.replace(/-/g, '') // remove existing dashes
             inputString = inputString.replace(/\D/g, '') // remove non-digits
             const formattedString = inputString.slice(0, 14).replace(/(\d{2})?(\d{4})?(\d{4})?(\d{4})?/, (match, p1, p2, p3, p4) => {
               let result = ''
@@ -87,7 +87,7 @@ const Login = () => {
               showOtpInput
                 ? (
                   <div className="input-options flex justify-between items-center gap-4">
-                    <OTPInput className="w-7 h-7"/>
+                    <OTPInput className="w-7 h-10"/>
                     <CustomButton className={'bg-submit'}>Submit</CustomButton>
                   </div>
                 )

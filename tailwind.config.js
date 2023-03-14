@@ -15,15 +15,16 @@ module.exports = {
         primary: '#B6EBB7',
         secondary: '#008080',
         preFillText: '#4D4242',
-        primaryButtonText: '#FFFFFF'
+        outline: '#005FCC'
+
       },
       backgroundColor: {
-        primary: '#B6D8EB',
-        secondary: '#EEF9FF',
+        primary: '#B6EBB7',
+        secondary: '#008080',
         backgroundText: '#948585',
-        submit: '#008080',
+        submit: '#E5FCF4',
         preFillText: '#4D4242',
-        textBox: '#EEF9FF',
+        textBox: '#F2FEFF',
         options: '#DAE1FB',
         deactivate: '#FBA997',
         delete: '#FF6464'
@@ -31,7 +32,6 @@ module.exports = {
       dropShadow: {
         keyValueDisplay: '0px 4px 4px rgba(0, 0, 0, 0.25)'
       },
-
       fontFamily: {
         sans: ['Avenir', 'sans-serif']
       }
