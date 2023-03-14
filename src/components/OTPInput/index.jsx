@@ -9,17 +9,15 @@ const OTPInput = ({ className = '' }) => {
 
   const handleOnChange = (e) => {
     const value = e.target.value
-    const newOtp = [...otp]
-    newOtp[currentOtpIndex] = value.substring(value.length - 1)
+    otp[currentOtpIndex] = value.substring(value.length - 1)
     if (!value) {
       setActiveOtpIndex(currentOtpIndex - 1)
     } else {
       setActiveOtpIndex(currentOtpIndex + 1)
     }
 
-    setOtp(newOtp)
+    setOtp([...otp])
   }
-
   const handleKeyDown = (e, index) => {
     if (['-', '+', 'e', '.', 'E'].includes(e.key)) {
       e.preventDefault()

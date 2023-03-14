@@ -14,15 +14,16 @@ module.exports = {
       colors: {
         primary: '#B6EBB7',
         secondary: '#008080',
-        preFillText: '#4D4242'
+        preFillText: '#4D4242',
+        primaryButtonText: '#FFFFFF'
       },
       backgroundColor: {
-        primary: '#B6EBB7',
-        secondary: '#008080',
+        primary: '#B6D8EB',
+        secondary: '#EEF9FF',
         backgroundText: '#948585',
-        submit: '#E5FCF4',
+        submit: '#008080',
         preFillText: '#4D4242',
-        textBox: '#F2FEFF',
+        textBox: '#EEF9FF',
         options: '#DAE1FB',
         deactivate: '#FBA997',
         delete: '#FF6464'
