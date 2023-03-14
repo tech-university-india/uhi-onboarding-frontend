@@ -92,7 +92,7 @@ const Registration = () => {
             <p className="mt-10 mb-10">
               {screenText.otpInformation.info}
               <span className="text-slate-400">
-                {screenText.otpInformation.link}
+                {screenText.otpInformation.linkText}
               </span>
             </p>
             <OTPInput className="w-10 h-10" />
