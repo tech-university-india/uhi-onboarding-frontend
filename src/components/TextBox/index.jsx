@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function TextBox ({ onChange, placeholder, disabled, noBg, partialText, text }) {
+function TextBox ({ onChange, placeholder, disabled, noBg, partialText, text, type = 'text' }) {
   // The following are used to calculate the padding required by the text being entered
   // into the textbox in the partialText mode so that the entered text does not overlap
   // onto the partialText.
-
+  console.log('type', type)
   const PAD_PARTIAL_TEXT_DOT = 0.625
   const PAD_PARTIAL_TEXT_NO_DOT = 0.68
   const PAD_PARTIAL_TEXT = `${partialText === undefined
@@ -16,7 +16,7 @@ function TextBox ({ onChange, placeholder, disabled, noBg, partialText, text }) 
     <>
       {partialText !== undefined
         ? <div className="relative">
-          <input type="text" disabled={disabled}
+          <input type={type} disabled={disabled}
             data-testid = "partialText"
             className={`disabled:text-preFillText p-3 w-full rounded-lg ${disabled ? 'shadow-textBoxInset' : 'shadow-textBox'} ${noBg ? '' : 'bg-textBox'} text-right`}
             style={{
@@ -31,7 +31,7 @@ function TextBox ({ onChange, placeholder, disabled, noBg, partialText, text }) 
           />
           <span className={'absolute block right-3 top-3 z-10 text-preFillText'}>{partialText}</span>
         </div>
-        : <input type="text" disabled={disabled} className={`disabled:text-preFillText p-3 w-full rounded-lg ${disabled ? 'shadow-textBoxInset' : 'shadow-textBox'} ${noBg ? '' : 'bg-textBox'}`}
+        : <input type={type} disabled={disabled} className={`disabled:text-preFillText p-3 w-full rounded-lg ${disabled ? 'shadow-textBoxInset' : 'shadow-textBox'} ${noBg ? '' : 'bg-textBox'}`}
           onChange={onChange}
           placeholder={placeholder}
           value={text}
