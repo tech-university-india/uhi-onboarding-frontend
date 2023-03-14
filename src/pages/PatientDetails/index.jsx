@@ -1,16 +1,20 @@
 import React from 'react'
-import { Header, KeyValueDisplay, Dropdown, SectionTitleDisplay, TextBox, CustomButton } from '@/components'
+import { Header, KeyValueDisplay, Dropdown, SectionTitleDisplay, TextBox, CustomButton, OTPInput } from '@/components'
 import screenText from 'screenText'
 import optionsIcon from '@/assets/options.png'
 import settingsIcon from '@/assets/settings.png'
 import Image from 'next/image'
 
 export default function PatientDetails () {
+  const [editMobileNumber, setEditMobileNumber] = React.useState(false)
   const onChangeMobileNumber = (event) => {
     console.log(event.target.value)
   }
   const onChangeEmail = (event) => {
     console.log(event.target.value)
+  }
+  const onSubmitMobileNumber = () => {
+    setEditMobileNumber(true)
   }
   return (
     <>
@@ -42,11 +46,23 @@ export default function PatientDetails () {
                 />
               )
             }} className="">
-              <div className="flex bg-textBox p-6">
-                <TextBox label="First Name" onChange={onChangeMobileNumber} className="bg-white" />
-                <CustomButton className="bg-submit ml-12">
+              <div className="flex flex-col bg-textBox p-6">
+                <div className="flex">
+                  <TextBox label="First Name" onChange={onChangeMobileNumber} className="bg-white" />
+                  <CustomButton className="bg-submit ml-12" onClick={onSubmitMobileNumber}>
                   Submit
-                </CustomButton>
+                  </CustomButton>
+                </div>
+                <div>
+                  {editMobileNumber && <div className="flex">
+                    <div>
+                      <OTPInput />
+                    </div>
+                    <CustomButton className="bg-submit">
+                      Submit
+                    </CustomButton>
+                  </div>}
+                </div>
               </div>
             </Dropdown>
           </div>
