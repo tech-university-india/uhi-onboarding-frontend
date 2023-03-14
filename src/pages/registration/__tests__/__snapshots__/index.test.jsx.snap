@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterForm should render correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="bg-primary shadow-header p-3 w-full rounded-md rounded-t-none"
+  >
+    <h1
+      class="text-3xl font-light"
+    >
+      Ayush
+    </h1>
+  </header>
+  <div
+    class="p-7"
+  >
+    <h1
+      class="mb-10 text-xl"
+    >
+      Registration
+    </h1>
+    <p
+      data-testid="handle-aadhar"
+    />
+    <input
+      class="disabled:text-preFillText p-3 w-full rounded-lg shadow-textBox bg-textBox"
+      placeholder="Aadhar Number"
+      type="text"
+      value=""
+    />
+    <button
+      class="bg-submit mt-10 block mx-auto my-0 shadow-xl px-8 py-3 rounded-xl text-base font-medium "
+    >
+      Register
+    </button>
+    <div
+      class="inline-flex mt-10"
+    >
+      <p
+        class="text-md"
+      >
+        Already have an ABHA number? 
+      </p>
+      <button
+        class="bg-submit shadow-xl px-8 py-3 rounded-xl text-base font-medium "
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
