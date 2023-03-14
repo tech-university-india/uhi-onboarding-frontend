@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import CustomButton from '@/components/CustomButton'
 
 const DeactivatePage = () => {
+  const [changePasswordMethod, setChangePasswordMethod] = React.useState('')
   const [isOpen, setIsOpen] = React.useState(false)
   const [newPasswordCreate, setNewPasswordCreate] = React.useState(false)
 
@@ -14,7 +15,8 @@ const DeactivatePage = () => {
     newPasswordCreateToggle()
   }
 
-  const methodClickHandler = () => {
+  const methodClickHandler = (e) => {
+    setChangePasswordMethod(e.target.innerText)
     changePassworMethodToggle()
     newPasswordCreateToggle()
   }
@@ -73,71 +75,91 @@ const DeactivatePage = () => {
 
         {newPasswordCreate && (
           <div className="bg-textBox flex flex-col items-center w-full py-4">
+            {changePasswordMethod === 'Password' && (
+              <input
+                type="password"
+                placeholder="Old Password"
+                className="h-8 text-red rounded-md shadow-xl px-4 py-8 text-lg mb-2 w-5/6"
+              />
+            )}
+
             <input
               type="password"
               placeholder="New Password"
               className="h-8 text-red rounded-md shadow-xl px-4 py-8 text-lg mb-2 w-5/6"
             />
+            {changePasswordMethod !== 'Password' && (
+              <div className="flex bg-red gap-2 mt-4">
+                <input
+                  type="text"
+                  data-testid="first"
+                  maxLength="1"
+                  id="first"
+                  onKeyUp={(e) => clickEvent(e.target, 'second')}
+                  className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
+                  placeholder="-"
+                />
+                <input
+                  type="text"
+                  maxLength="1"
+                  data-testid="second"
+                  id="second"
+                  onKeyUp={(e) => clickEvent(e.target, 'third')}
+                  className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
+                  placeholder="-"
+                />
+                <input
+                  type="text"
+                  maxLength="1"
+                  data-testid="third"
+                  id="third"
+                  onKeyUp={(e) => clickEvent(e.target, 'fourth')}
+                  className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
+                  placeholder="-"
+                />
+                <input
+                  type="text"
+                  maxLength="1"
+                  data-testid="fourth"
+                  id="fourth"
+                  onKeyUp={(e) => clickEvent(e.target, 'fifth')}
+                  className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
+                  placeholder="-"
+                />
+                <input
+                  type="text"
+                  maxLength="1"
+                  data-testid="fifth"
+                  id="fifth"
+                  onKeyUp={(e) => clickEvent(e.target, 'sixth')}
+                  className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
+                  placeholder="-"
+                />
+                <input
+                  type="text"
+                  maxLength="1"
+                  data-testid="sixth"
+                  id="sixth"
+                  className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
+                  placeholder="-"
+                />
 
-            <div className="flex bg-red gap-2 mt-4">
-              <input
-                type="text"
-                data-testid="first"
-                maxLength="1"
-                id="first"
-                onKeyUp={(e) => clickEvent(e.target, 'second')}
-                className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
-                placeholder="-"
-              />
-              <input
-                type="text"
-                maxLength="1"
-                data-testid="second"
-                id="second"
-                onKeyUp={(e) => clickEvent(e.target, 'third')}
-                className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
-                placeholder="-"
-              />
-              <input
-                type="text"
-                maxLength="1"
-                data-testid="third"
-                id="third"
-                onKeyUp={(e) => clickEvent(e.target, 'fourth')}
-                className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
-                placeholder="-"
-              />
-              <input
-                type="text"
-                maxLength="1"
-                data-testid="fourth"
-                id="fourth"
-                onKeyUp={(e) => clickEvent(e.target, 'fifth')}
-                className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
-                placeholder="-"
-              />
-              <input
-                type="text"
-                maxLength="1"
-                data-testid="fifth"
-                id="fifth"
-                onKeyUp={(e) => clickEvent(e.target, 'sixth')}
-                className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
-                placeholder="-"
-              />
-              <input
-                type="text"
-                maxLength="1"
-                data-testid="sixth"
-                id="sixth"
-                className="w-7 shadow-lg h-12 text-center rounded-md shadow-xl"
-                placeholder="-"
-              />
-
-              <CustomButton className="bg-submit px-4 drop-shadow-xl rounded-sm font-light" onClick={submitClickHandler}>
+                <CustomButton
+                  className="bg-submit px-4 drop-shadow-xl rounded-sm font-light"
+                  onClick={submitClickHandler}
+                >
+                  Submit
+                </CustomButton>
+              </div>
+            )}
+            {changePasswordMethod === 'Password' && (
+              <CustomButton
+                className="bg-submit px-4 drop-shadow-xl rounded-sm font-light"
+                onClick={submitClickHandler}
+              >
                 Submit
               </CustomButton>
-            </div>
+            )}
           </div>
         )}
       </div>
